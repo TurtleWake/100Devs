@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(46, 69, 99);
+    height: 100vh;
+}
+
+header,
+footer {
+    height: 10%;
+    border: 3px solid #bfcee3;
+}
+
+section {
+    height: 80%;
+    width: 100%;
+    border: 3px solid #bfcee3;
+    background-color: #7488a3;
+    clear: both;
+}
+
+div {
+    border: 3px dashed #b8ab92;
+    height: 100%;
+}
+
+
+.left,
+.left-mid,
+.right,
+.right-mid {
+    float: left;
+}
+
+.left,
+.right {
+    width: 20%;
+}
+
+.left-mid{
+    width: 45%;
+}
+
+.right-mid{
+width: 15%;
+}

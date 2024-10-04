@@ -1,0 +1,125 @@
+/******************************************
+/* HOT GARBAGE - PLEASE DON'T MIMIC THIS CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+h1, h2, form{
+  text-align: center;
+}
+button{
+  display: block;
+  margin: 20px auto;
+}
+ul{
+  width: 100px;
+  height: 200px;
+  border: 3px solid black;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+li{
+  text-align: center;
+  width: 94px;
+  height: 49px;
+  border: 1px solid black;
+}
+h2{
+  font-size: 100px;
+  color: red;
+  font-weight: bold;
+}
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+
+#angerMeter{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+
+/* Default styling */
+body {
+  background-color: white;
+  transition: background-color 0.5s ease, font-size 0.5s ease;
+}
+
+h2#placeToYell {
+  font-size: 20px;
+  color: black;
+}
+
+/* Anger level 1 (calm) */
+.anger-level-1 {
+  background-color: #bde0fe;
+}
+
+.anger-level-1 h2#placeToYell {
+  font-size: 20px;
+}
+
+/* Anger level 2 */
+.anger-level-2 {
+  background-color: #fee7bd;
+}
+
+.anger-level-2 h2#placeToYell {
+  font-size: 25px;
+}
+
+/* Anger level 3 */
+.anger-level-3 {
+  background-color: #ffcc99;
+}
+
+.anger-level-3 h2#placeToYell {
+  font-size: 30px;
+}
+
+/* Anger level 4 */
+.anger-level-4 {
+  background-color: #ff9966;
+}
+
+.anger-level-4 h2#placeToYell {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+/* Anger level 5 (furious) */
+.anger-level-5 {
+  background-color: #ff3300;
+}
+
+.anger-level-5 h2#placeToYell {
+  font-size: 40px;
+  font-weight: bold;
+  animation: shake 0.5s infinite;
+}
+
+/* Shake effect for highest anger level */
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}

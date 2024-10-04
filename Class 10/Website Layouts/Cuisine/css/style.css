@@ -1,0 +1,540 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+*{
+  text-decoration: none;
+  list-style: none;
+}
+
+
+body {
+   font-size: 62.50%;
+}
+
+section.indent{
+  margin: 0 8%;
+}
+
+
+/******************************************
+/* Nav + Welcome Section
+/*******************************************/
+
+/* Navigation Bar */
+
+header{
+  background: #8888882a;
+  margin: 0;
+  padding: 5px;
+}
+
+ul{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: .8rem;
+  font-weight: 800;
+  margin: 0;
+  padding: 0;
+  margin-right: 50px;
+}
+
+li{
+  padding: 0 20px;
+}
+
+li:hover{
+  color: #FF8800;
+}
+
+nav a, #order a{
+  color: black;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+nav i{
+  font-size: 1.6rem;
+}
+
+/* Welcome section */
+
+.centering{
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+#welcome{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+#welcomeBG{
+  background: url(https://cdn.discordapp.com/attachments/1172613277889601567/1240386268010119358/pexels-elletakesphotos-1660030.jpg?ex=66465f3b&is=66450dbb&hm=39f9532d01c0121a99455ea24d091b0a3642b5de6ac82c5a4e614a24fe66c690&) no-repeat;
+  background-size: cover;
+  height: auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+  font-size: 5rem;
+  text-align: left;
+  margin: 5px;
+  padding: 0;
+}
+
+
+
+/* Style the search container */
+
+input{
+  font-size: 2rem;
+  width: 70%;
+  border: 1px rgba(128, 128, 128, 0.438) solid;
+  border-radius: 5px;
+  border-right: none;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  margin: 0;
+  padding: 0;
+}
+
+.search-container input[type="text"]:focus {
+  outline: none; 
+  border: 1px solid #cccccc;
+}
+
+
+.search-container {
+  position: relative;
+  display: flex;
+  width: 80%;
+  color: #88888869;
+}
+
+.search-container i {
+  position: absolute;
+  left: 10px; 
+  top: 50%;
+  font-size: 1rem;
+  transform: translateY(-50%);
+  
+}
+
+.search-container input[type="text"] {
+  padding-left: 30px; 
+  color: #FF8800;
+}
+
+.search-container input[type="text"]::placeholder {
+  color: #cccccc; /* Light gray color */
+}
+
+
+
+/* Change the color of the blinking cursor */
+.search-container input[type="text"]:focus::placeholder {
+  color: #c9c9c998; /* Orange color */
+}
+
+
+
+.search-container button{
+  position: relative;
+  left: -3px;
+  background: #FF8800;
+  color: white;
+  height: 100%;
+  font-size: 1rem;
+  width: 20%;
+  border: 0;
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  margin: 0;
+  padding: 10px;
+}
+
+
+/* Socials */
+.socials i{
+  font-size: 1.5rem;
+  color: #FF8800;
+  margin: 30px 90px 0 0;
+}
+
+
+/******************************************
+/* About us section
+/*******************************************/
+
+#aboutBG{
+  display: flex;
+  justify-content: flex-end;
+  background: url(https://images.pexels.com/photos/775031/pexels-photo-775031.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) no-repeat;
+  background-size: cover;
+  height: auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#about{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  width: 60%;
+  bottom: 200px;
+  right: 0px;;
+}
+
+
+#about h2{
+  display: flex;
+  justify-content: flex-end;
+  font-size: 4.8rem;
+  width: 55%;
+  margin: 0;
+  padding: 0;
+  gap: 3px;
+}
+
+#about p{
+  font-size: 1.3rem;
+  width: 40%;
+}
+
+#about button{
+  background: #FF8800;
+  color: white;
+  font-size: 1rem;
+  width: 20%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin: 30px 0;
+  padding: 10px;
+}
+
+button a{
+  color: white;
+}
+
+#about #lower{
+  width: 70%;
+  margin: 0;
+}
+
+
+/******************************************
+/* Order Section
+/*******************************************/
+
+.default{
+  background-image: linear-gradient(to right, rgba(177, 203, 228, 0.329) 10%, white 50%, rgba(177, 203, 228, 0.329) 100%);
+}
+
+#order{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#order h4{
+  font-size: 1.5rem;
+  color: #FF8800;
+  margin: 30px 0 0 0;
+}
+
+#order h2{
+  font-size: 3rem;
+  margin: 0 0 30px 0;
+}
+
+#order ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+#order li {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+#order li a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 10px 20px;
+  display: block;
+}
+
+#order li:after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: transparent;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: background 0.3s ease;
+}
+
+#order li.active a {
+  color: orange;
+}
+
+#order li.active:after {
+  background: orange;
+}
+
+#images-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+#images-container img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin: 10px;
+  border-radius: 3px;
+}
+
+#images-container img:hover {
+ box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.342);
+}
+
+#order ul{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.info .stars{
+  color: #FF8800;
+}
+
+.info button{
+  background: #FF8800;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/******************************************
+/* Order Section
+/*******************************************/
+
+#open{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#book, #open h3{
+  font-size: 1.5rem;
+  color: #FF8800;
+  margin: 5px;
+}
+
+#open h2{
+  font-size: 3rem;
+  margin: 0 0 30px 0;
+}
+
+.bx-phone-call{
+  font-size: 1.5rem;
+  color: #FF8800;
+  margin: 30px 0 5px 0;
+  padding: 5px;
+  border: 2px solid #FF8800;
+  border-radius: 50%;
+}
+
+#call{
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+#open-days{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+
+#open-days p{
+  margin-right: 50px;
+  font-size: 1rem;
+  margin: 5px;
+  padding: 0;
+  text-align: center;
+}
+
+#open-days h4{
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.gallery{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#videoContainer {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.gallery .bx{
+  font-size: 1.5rem;
+  color: #FF8800;
+  width: 5%;
+  height: auto;
+  padding: 5px;
+  border: 2px solid #FF8800;
+  border-radius: 50%;
+  margin: 20px;
+}
+
+.gallery .bx:hover{
+  color: white;
+  background-color: #FF8800;
+}
+
+
+/******************************************
+/* Testimonials
+/*******************************************/
+
+#review{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#test{
+  font-size: 1.5rem;
+  color: #FF8800;
+  margin-top: 85px;
+}
+
+#theySay{
+  font-size: 3rem;
+  margin: 0 0 30px 0;
+}
+
+.review-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.border {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-item img {
+  height: 100%;
+  width: auto;
+  min-width: 100%;
+  object-fit: cover; 
+}
+
+.userName{
+  font-size: 1.3rem;
+  margin-bottom: 0;
+}
+
+.userTitle{
+  font-size: .8rem;
+  margin-bottom: 10px;
+  color: rgba(128, 128, 128, 0.479);
+}
+
+.stars{
+  color: rgb(255, 208, 0);
+  font-size: 1.2rem;
+  margin: 15px 0;
+  display: block;
+}
+
+.userText{
+  font-size: 1.2rem;
+  width: 70%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+#review-next{
+  font-size: 1.2rem;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.review-next i {
+  cursor: pointer;
+  margin: 0 5px;
+  font-size: 20px;
+  color: gray;
+}
+
+#review-next .bx{
+ color: rgba(128, 128, 128, 0.418);
+}
+
+#review-next .bx-radio-circle-marked {
+  color: #FF8800;
+}

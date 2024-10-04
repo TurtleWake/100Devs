@@ -1,0 +1,392 @@
+/***** Main *****/
+
+:root{
+    --background: #2E363E;
+    --font: #DFE9F2;
+    --accents: #91A0AF;
+    --secondAccent: #80BFEB;
+    --navBar: #4051B5;
+    --hovering: #6B90D3;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background: var(--background);
+    color: var(--font);
+    font-size: 62.50%;
+    height: 100vh;
+}
+
+/***** Top navigation *****/
+
+#blueBar{
+    background: var(--navBar);
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 5px 5px rgb(36, 36, 36);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 4;
+}
+
+#logo{
+    color: var(--font);
+    font-size: 1.8rem;
+    margin: 10px 40px;
+}
+
+/***** Sidebar Navigation *****/
+
+nav{
+    margin: 0 80px;
+    font-size: 1.1rem;
+    color: var(--accents);
+    width: 15%;
+    font-weight: 800;
+    position: fixed;
+}
+
+li{
+    list-style: none;
+    text-decoration: none;
+    padding: 10px 0;
+    line-height: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+a{
+    color: var(--font);
+    text-decoration: none;
+    font-weight: 100;
+}
+
+a:hover{
+    color: var(--hovering);
+}
+
+/***** Main Section *****/
+#mainLayout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+    position: relative;
+    left: 500px;
+    width: 60%;
+    height: 100vh;
+}
+
+h1{
+    font-size: 2rem;
+    margin-top: 50px;
+}
+
+h3{
+    font-size: 1rem;
+}
+
+span{
+    font-size: 1.2rem;
+}
+
+.mainInfo{
+  font-size: 1rem;
+}
+
+.mainInfo h2{
+    font-size: 1.5rem;
+    padding: 10px 0;
+}
+
+.mainInfo pre, #finalValueHidden{
+    background: var(--accents);
+    width: 450px;
+    padding: 40px;
+    margin: 5px 0;
+    border: 2px solid #4051B5;
+}
+
+/***** 321...Code *****/
+
+/* Presentation */
+button{
+    background: var(--accents);
+    color: var(--font);
+    padding: 8px;
+    border: 1px solid var(--font);
+    margin: 0;
+    font-size: .8rem;
+}
+
+#showNameAndAge:hover{
+    background: var(--background);
+}
+
+#showNameAndAge:active{
+    padding: 10px;
+}
+
+.hidden{
+    display: none;
+}
+
+.mainInfo img{
+    margin: 20px 0;
+}
+
+#presentationQuestion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Minimalistic Calculator */
+#minimalCalculatorQuestion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#mathQuestions div{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.mathButtons{
+    margin: 5px;
+    width: 100px;
+}
+
+.mathButtons:hover{
+    background: var(--background);
+}
+
+.mathButtons:active{
+    padding: 10px;
+}
+
+.emptyAnswer{
+    border: 2px solid var(--navBar);
+    height: 20px;
+    width: 20px;
+    background: var(--accents);
+    margin: 8px;
+    color: var(--font);
+}
+
+#additionHidden, 
+#subtractionHidden, 
+#multiplicationHidden, 
+#divisionHidden{
+    text-align: center;
+}
+
+.hidden{
+    display: none;
+}
+
+/***** Play with variables *****/
+/* Improved Hello */
+
+#fullName{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--secondary);
+    padding: 50px 50px;
+    margin: 0;
+    height: 50vh;
+}
+
+#fullName input{
+    background: var(--accents);
+    color: var(--font);
+    font-size: 25px;
+    border: 1px solid var(--navBar);
+}
+
+#fullName input[type=submit]:focus{
+    color: #013440;
+}
+
+#fullName button{
+    background: var(--accents);
+    padding: 3px;
+}
+
+#fullName i{
+    color: var(--font);
+    font-size: 1.3rem;
+}
+
+#fullName p, #fullName h2{
+    text-align: center;
+    font-size: 25px;
+    color: var(--font);
+}
+
+#finalValuesIsNext{
+    background: var(--accents);
+    color: var(--font);
+    padding: 8px;
+    border: 1px solid var(--font);
+    margin: 0;
+    font-size: .8rem;
+}
+
+#firstName::placeholder, #lastName::placeholder{
+    color: var(--background);
+}
+
+/* Final Values */
+
+#fullName, #fullName .div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+
+
+/* VAT calculation */
+
+#vatInput{
+    width: 100px;
+    margin-right: 8px;
+}
+
+#vatInput::placeholder{
+    font-size: 1.3rem;
+    color: var(--background);
+}
+
+#vatAlignment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#calculatedValue{
+    border: 2px solid var(--navBar);
+    height: 26px;
+    width: 200px;
+    background: var(--accents);
+    margin: 8px;
+    color: var(--font);
+    font-size: 1.3rem;
+    overflow: hidden;
+}
+
+#p3 #wayToTemperatureConversion{
+    color: var(--navBar);
+    font-size: 5rem;
+}
+
+/* From Celsius to Fahrenheit degrees */
+
+#thermometerAlignment{
+    display: flex;
+    margin-top: 20px;
+}
+
+#thermometerSettings, #thermometerObject{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: var(--secondAccent) 1px solid;
+    padding: 15px;
+    font-size: .8rem;
+    margin-right: 15px;
+}
+
+#thermometerSettings h3{
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#thermometerSettings p{
+    font-size: .9rem;
+    margin-top: 5px;
+    align-self: flex-start;
+}
+
+input#userTemperatureValue{
+    font-size: 1.2rem;
+    width: 60px;
+}
+
+#thermometerSettings button{
+    width: 60px;
+    align-self: center;
+    margin-top: 30px;
+}
+
+.temperatureType{
+    display: flex;
+    flex-direction: column;
+}
+
+.temperatureType div{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.temperatureType input{
+    width: 10%;
+}
+
+.temperatureType label{
+    width: 70%;
+}
+
+#temperatureNumbers{
+    display: flex;
+    flex-direction: column;
+}
+
+.temperatureNotch{
+    border: 1px var(--font) solid;
+    height: .5px;
+    width: 10px;
+    margin-left: 3px;
+}
+
+.temperatureNumber{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#thermometerObjectAlignment{
+    display: flex;
+}
+
+#temperatureMeter{
+    width: 20px;
+    max-height: 230px;
+    margin: 0 0 5px 15px;
+    align-self: flex-end;
+}
+
+#convertedValue{
+    text-align: center;
+    margin-top: 30px;
+}

@@ -1,0 +1,399 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES (building for mobile first) 
+/*******************************************/
+body{
+  font-size: 62.50%;
+}
+
+/* Header (building for mobile first)  */
+
+nav{
+  display: none;
+}
+
+/* Main (building for mobile first) */
+
+main{
+  width: 95%;
+  margin: auto;
+}
+
+section h2{
+  font-size: 3em;
+  width: 100%;
+  font-weight: 800;
+}
+
+#intro{
+  padding: 8px 0;
+  display: inline-block;
+  width: 100%;
+}
+
+hr{
+  width: 100%;
+  font-weight: 900;
+}
+
+#featured{
+  width: 100%;
+  height: 100%;
+  color: black;
+  display: inline-block;
+  background-color: rgba(180, 180, 180, 0.199);
+  border: 2px rgba(255, 0, 0, 0.219) solid;
+}
+
+#featured img, img{
+  width: 100%;
+  display: inline-block;
+}
+
+img.mobile-hide{
+  display: none;
+}
+
+h1{
+  font-size: 3em;
+  padding: 0;
+  margin: 5px 0;
+}
+
+h1 + p{
+  font-size: 1.5em;
+}
+
+span{
+  font-size: 1.1em;
+  font-weight: 700;
+  padding: 5px;
+  margin: 5px;
+}
+
+#featured-rotation{
+  display: inline-block;
+}
+
+#featured-rotation section{
+  margin: 5px 0;
+  border-bottom: 2px solid rgba(190, 189, 189, 0.349);
+  height: 100%;
+  color: rgba(32, 32, 32, 0.788) ;
+}
+
+.vert{
+  color: red;
+  font-size: 1em;
+  font-weight: 900;
+}
+
+section h4{
+  float: left;
+  width: 50%;
+}
+
+section #date{
+  float: right;
+  width: 50%;
+}
+
+/* Bottom */
+
+footer section{
+  margin: 5px;
+  font-size: 1.5em;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 1025px) {
+  img.mobile-hide {
+    display: block;
+  }
+}
+
+@media  screen and (min-width: 1300px) {
+  nav.mobile{
+    display: none;
+  }
+
+  main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 99%;
+    margin: 5px;
+    padding: 0;
+  }
+  
+
+  nav{
+    display: flex;
+    background-color: black;
+    align-items: center;
+    max-height: 50px;
+  }
+
+  nav section, ul{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    list-style: none;
+  }
+
+  nav #logo{
+    display: flex;
+    height: auto;
+    align-items: center;
+  }
+
+  nav #sign-in a{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+
+
+  nav #sign-in img{
+    width: auto; 
+    height: 30%; 
+  }
+
+  nav li a, nav li, nav #sign-in a{
+    display: flex;
+    text-decoration: none;
+    color: white;
+    font-size: 1.6em;
+    height: 100%;
+  }
+
+  nav a {
+    border-left: 1px solid white;
+    padding: 0 15px;
+  }
+
+  nav input{
+    border-radius: 5px;
+    font-size: 2em;
+    color: black;
+  }
+
+
+  .mobile{
+    display: none;
+  }
+
+  #intro {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    font-size: 2em; 
+  }
+  
+  #intro .desktop {
+    display: flex;
+    align-items: center;
+  }
+  
+  #intro .date {
+    margin-left: auto;
+  }
+  
+  section.date{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+
+  #featured h1, #featured p, #featured span {
+      position: relative; 
+      color: white; 
+      z-index: 3; 
+      padding: 0;
+      margin: 10px;
+      top: 300px;
+  }
+
+  #featured {
+    position: relative;
+    width: 51%;
+    height: 400px; 
+    overflow: hidden; 
+    border: none;
+    margin: 5px;
+  }
+
+  #featured img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; 
+      z-index: -1;
+  }
+
+  #featured div::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 35%; 
+    background: linear-gradient(to top, rgb(0, 0, 0), transparent); /* Gradient overlay */
+    z-index: 1; 
+  }
+
+  #featured h1, #featured p, #featured span {
+      position: relative; 
+      color: white; 
+      z-index: 2; 
+      padding: 0;
+      margin: 5px;
+      top: 300px;
+  }
+
+  #featured .vert{
+    position: relative;
+    top: 0;
+    color: red;
+    z-index: 3;
+    font-size: 1.5em;
+  }
+
+  #featured-rotation {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    width: 47.5%; 
+    padding: 0;
+    margin: 0;
+  }
+
+  #featured-rotation section {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    height: 48%;
+    padding: 0;
+    margin: 5px 10px 0 0;
+    border: none;
+  }
+  
+  #featured-rotation div::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120%; 
+    background: linear-gradient(to top, rgb(0, 0, 0), transparent); /* Gradient overlay */
+    z-index: 1; 
+  }
+
+  #featured-rotation img {
+    position: absolute;
+    width: 48%;
+    height: 48%;
+    object-fit: cover;
+    padding: 0;
+    margin: 0;
+  }
+
+  #featured-rotation div{
+    position: relative;
+    z-index: 3;
+    top: 125px;
+  }
+
+  #featured-rotation h2{
+    position: relative;
+    font-size: 2em;
+    color: white;
+    margin: 5px;
+    z-index: 3;
+  }
+
+  #featured-rotation span{
+    position: relative;
+    color: white;
+    z-index: 2;
+  }
+
+  #featured-rotation .vert{
+    color: red;
+    font-size: 1.3em;
+  }
+
+  #featured-rotation img {
+    position: absolute;
+    width: 48%;
+    height: 48%;
+    object-fit: cover;
+    padding: 0;
+    margin: 0;
+  }
+
+
+  #featured-rotation h2{
+    font-size: 2em;
+    color: white;
+    margin: 5px;
+  }
+
+  #featured-rotation span{
+    position: relative;
+    color: white;
+  }
+
+  #featured-rotation .vert{
+    color: red;
+    font-size: 1.3em;
+  }
+
+  
+  footer{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  footer section{
+    display: flex;
+    flex-direction: column;
+    width: 32.6%;
+  }
+
+  footer h2 {
+    width: 100%;
+    height: 50px;
+    font-size: 4em;
+  }
+
+  footer span{
+    color: rgba(119, 119, 119, 0.541);
+  }
+
+}

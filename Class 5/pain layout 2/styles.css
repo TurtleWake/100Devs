@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(46, 69, 99);
+    height: 100vh;
+}
+
+header, footer{
+    height: 10%;
+    border: 3px solid #BFCEE3;
+}
+
+section {
+    width: 100%;
+    border: 3px solid #BFCEE3;
+    background-color: #7488A3;
+    clear: both;
+}
+
+div{
+    border: 3px dashed #B8AB92;
+    height: 100%
+}
+
+
+.top-row{
+    height: 35%;
+}
+
+.bottom-row{
+    height: 45%;
+}
+
+.left, .right{
+    float: left;
+}
+
+.left{
+    width: 40%;
+}
+
+.right{
+    width: 60%;
+}

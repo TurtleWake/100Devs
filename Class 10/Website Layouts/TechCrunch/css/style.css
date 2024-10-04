@@ -1,0 +1,336 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+  font-family: "Work Sans", Arial, Helvetica, sans-serif;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+html{
+  font-size: 62.50%;
+  padding: 0;
+  margin: 3px;
+}
+
+a, li{
+  list-style: none;
+  text-decoration: none;
+}
+
+
+
+/******************************************
+/* HEADER/NAVIGATION/LOGO
+/*******************************************/
+
+header {
+  float: left;
+  height: 100vh;
+  width: 10%;
+}
+
+nav section{
+  float: left;
+  font-size: 1.6em;
+}
+
+nav section ul{
+  padding: 0 0 30px 0;
+  margin: 0;
+}
+
+nav section ul li{
+  padding: 0;
+  margin: 0;
+}
+
+#login{
+  font-size: 1em;
+  font-weight: 400;
+  color: rgba(128, 128, 128, 0.493);
+}
+
+#logo{
+  display: block;
+  height: 25px;
+  margin-bottom: 10px;
+}
+
+nav section span + a{
+  color: rgba(0, 0, 0, 0.568);
+  font-size: .9em;
+}
+
+#join{
+  font-size: .9em;
+  font-weight: 800;
+  padding: 5px 0;
+  display: block;
+  color: goldenrod;
+}
+
+#joinMobile{
+  display: none;
+}
+
+section a + a{
+  color: gray;
+  font-size: .8em;
+}
+
+ul{
+  padding: 15px 0;
+  margin: 0;
+  float: left;
+  font-size: .8em;
+  color: rgba(102, 102, 102, 0.651);
+}
+
+nav li{
+  padding: 5px 0;
+}
+
+#navHR {
+  max-width: 20%;
+  margin-left: 2px;
+}
+
+#more a{
+  font-size: 1em;
+  color: rgba(102, 102, 102, 0.651);
+}
+
+
+
+/******************************************
+/* MAIN BODY
+/*******************************************/
+
+main{
+  float: left;
+  width: 60%;
+  padding: 15px;
+}
+
+main img{
+  max-width: 100%;
+  margin: 10px 0;
+}
+
+#extra {
+  color: goldenrod;
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+h1{
+  margin: 0;
+  font-size: 4.55em;
+  font-weight: 500;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+main p{
+  color: rgba(102, 102, 102, 0.651);
+  font-size: 2em;
+  margin: 5px 0;
+}
+
+main p + span{
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+
+
+
+/******************************************
+/* ASIDE LIST
+/*******************************************/
+
+aside{
+  width: 30%;
+  float: right;
+}
+
+ul a{
+  color: black;
+  font-size: 1.8em;
+  font-weight: 800;
+}
+
+h3{
+  margin: 0;
+}
+
+hr {
+  display: block;
+  width: 100%;
+  border: .5px solid rgba(129, 129, 129, 0.199);
+}
+
+/******************************************
+/* FOOTER
+/*******************************************/
+
+footer{
+  max-height: 20%;
+  width: 90%;
+  float: left;
+  padding: 15px;
+}
+
+footer > span{
+  font-size: 1.5em;
+  font-weight: 800;
+  padding: 10px 0;
+}
+
+footer > section{
+  padding: 15px 0;
+}
+
+footer h2{
+  font-size: 3.5em;
+  padding: 0;
+  margin: 0;
+}
+
+footer h2 + span{
+  display: block;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+
+footer span + span {
+  font-size: 1.2em;
+}
+
+footer p{
+  font-size: 2em;
+  margin: 0;
+  padding: 0 30px;
+  color: rgba(90, 90, 90, 0.699);
+}
+
+footer section section{
+  float: left;
+  width: 33.3333%;
+}
+
+footer img{
+  max-width: 100%;
+  float: right;
+}
+
+
+
+
+/******************************************
+/* MEDIA QUERIES
+/*******************************************/
+
+/* For mobile */
+@media only screen and (max-width: 600px) {
+  header{
+    float: none;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+  }
+ 
+  #dropdown{
+    display: none;
+  }
+
+  nav section ul{
+    width: 100%;
+    display: inline;
+    padding: 0;
+  }
+
+  #logo{
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav a{
+    padding: 0;
+    margin: 0;
+  }
+
+  #joinMobile{
+    display: inline;
+    font-size: .9em;
+    font-weight: 800;
+    padding: 5px 0;
+    color: goldenrod;
+  }
+
+  #join{
+    display: none;
+  }
+
+
+  #dropdown{
+    background-color: rgb(54, 163, 59);
+    width: 50%;
+  }
+
+  nav section{
+    width: 90%;
+  }
+
+  nav section + section{
+    width: 10%;
+  }
+
+  nav, nav li{
+    width: 100%;
+    display: inline;
+  }
+
+  main{
+    text-align: left;
+  }
+
+  header, main, aside, footer, footer p, footer section section, hr{
+    width: 100%;
+    padding: 0;
+  }
+}  
+
+/* Tablet */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+  header{
+    width: 20%;
+    position: fixed;
+  }
+
+  main, aside{
+    width: 80%;
+    float: right;
+  }
+
+  footer{
+    width: 100%;
+  }
+}

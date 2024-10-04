@@ -1,0 +1,330 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+*{
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+   font-size: 62.50%;
+   font-family: 'Cinzel', sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Header */
+
+header{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+header img{
+  height: 60px;
+}
+
+header a{
+  color: black;
+}
+
+nav{
+  width: 70%;
+}
+
+nav ul{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 25px;
+}
+
+header span{
+  color: black;
+}
+
+/* Home Section */
+
+#background{
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  box-shadow: 0px 6px 0px rgb(170, 86, 135);
+  border-radius: 0 0 200px 0;
+}
+
+#home{
+  margin: 100px;
+  text-transform: uppercase;
+}
+
+#home h1{
+  font-size: 5rem;
+  font-weight: 100;
+  color: white;
+  width: 60%;
+  margin: 0;
+  padding: 0;
+}
+
+#home p{
+  font-size: 1.2rem;
+  color: white;
+  margin: 0;
+  margin-bottom: 50px;
+  padding: 0;
+}
+
+#ourServices{
+  background: black;
+  color: white;
+  font-size: 1rem;
+  font-weight: 100;
+  padding: 10px 25px;
+  margin: 100px 0;
+}
+
+#coupon{
+  background: black;
+  color: white;
+  margin: 100px 0;
+  padding: 30px;
+  width: 250px;
+}
+
+#firstVisit{
+  font-size: .8rem;
+  margin: 55px 0;
+}
+
+#coupon p{
+  font-size: .9rem;
+  padding: 0;
+  margin: 50px 0;
+}
+
+#discountNumber{
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+#coupon a{
+  background: white;
+  color: black;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-weight: 800;
+}
+
+#openHours{
+  transform: translateY(-50%) rotate(90deg);
+  position: absolute;
+  right: 0;
+  top: 300px;
+}
+
+#bgPictureChange{
+  display: flex;
+  justify-content: flex-end;
+}
+
+#bgPictureChange i{
+  font-size: 1rem;
+  font-weight: 600;
+  background: white;
+  color: black;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+
+#snippets{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin-top: 200px;
+  font-size: 1rem;
+}
+
+#home #snippets .snippetInfo{
+  color: black;
+  font-size: .8rem;
+  text-transform: none;
+  padding: 0 20px;
+}
+
+/* Momentum Section */
+
+#momentum{
+  background: lightgray;
+  display: flex;
+  justify-content: space-around;
+  padding: 100px;
+}
+
+#momentum div{
+  width: 50%;
+}
+
+#momentum h2{
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+#momentum p{
+  font-size: 1rem;
+  width: 90%;
+  margin-bottom: 30px;
+}
+
+#momentum a{
+  background: black;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 15px;
+}
+
+#momentum video{
+  width: 350px;
+}
+
+#myVideo {
+  width: 100%; 
+}
+
+/* Stylist Section */
+
+#stylists{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 100px 200px;
+}
+
+.stylistCard{
+  position: relative;
+}
+
+.stylistCard img{
+  height: 400px;
+  max-width: 300px;
+  object-fit: cover;
+}
+
+.stylistInfo{
+  text-align: center;
+  background: black;
+  color: white;
+  position: absolute;
+  left: 20px;
+  bottom: -25px;
+  padding: 5px 25px;
+}
+
+.stylistCard h5{
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Book Section */
+
+#book{
+  background-image: url(https://images.pexels.com/photos/4614/woman-morning-bathrobe-bathroom.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px;
+  margin: 200px;
+  padding: 100px;
+  text-align: end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#offer{
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+#book p{
+  font-size: 1.5rem;
+  width: 35%;
+}
+
+#book p span{
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+#book a{
+  font-size: 1rem;
+  background: black;
+  color: white;
+  padding: 10px 15px;
+}
+
+
+/* Lookbook Section */
+
+#lookbook {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px; 
+  max-width: 1000px; 
+  margin: 0 250px 250px 250px; 
+}
+
+#lookbookHeader{
+  text-align: center;
+  font-size: 2rem;
+  width: 100%;
+}
+
+.image-container {
+  flex: 1 1 calc(25% - 10px); 
+  max-width: calc(25% - 10px); 
+  height: auto; 
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+}
+
+
+
