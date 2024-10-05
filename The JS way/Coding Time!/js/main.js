@@ -242,15 +242,15 @@ if (document.querySelector("#fullNameEnter")){
                         <div class="temperatureType">
                             <div>
                                 <input type="radio" id="newCelsiusValue" name="newTemperature" value="celsius" default>
-                                <label for="newValueCelsius">Celsius</label>
+                                <label for="newCelsiusValue">Celsius</label>
                             </div>
                             <div>
                                 <input type="radio"  id="newKelvinValue" name="newTemperature" value="kelvin">
-                                <label for="newValueKelvin">Kelvin</label>
+                                <label for="newKelvinValue">Kelvin</label>
                             </div>
                             <div>
                                 <input type="radio"  id="newFahrenheitValue" name="newTemperature" value="fahrenheit">
-                                <label for="newValueFahrenheit">Fahrenheit</label>
+                                <label for="newFahrenheitValue">Fahrenheit</label>
                             </div>
                         </div>
                         <button id="convertUserValueToNewValue">Convert</button>    
@@ -322,25 +322,74 @@ if (document.querySelector("#fullNameEnter")){
                 `
             document.querySelector("#convertUserValueToNewValue").addEventListener("click", convertUserValueToNewValue);
             
-
-            function convertUserValueToNewValue(){
+            function convertUserValueToNewValue() {
                 const userTemperatureValue = parseFloat(document.querySelector('#userTemperatureValue').value);
-                console.log("User Value: ", userTemperatureValue);
                 const convertingTemperature = document.querySelector('input[name="convertingTemperature"]:checked').value;
-                console.log("Converting from: ", convertingTemperature);
                 const newTemperature = document.querySelector('input[name="newTemperature"]:checked').value;
-                console.log("Converting to: ", newTemperature);
                 let convertedValue = document.querySelector("#convertedValue");
-               
-                
-
-                if(convertingTemperature === "celsius" && newTemperature === "kelvin"){
-                    console.log("..running formula")
-                    convertedValue.innerText = Number(userTemperatureValue + 273.15);
-                    console.log("Converted Value: ", convertedValue)
+            
+                // Define conversion functions
+                const conversionFormulas = {
+                    "celsius": {
+                        "kelvin": (temp) => temp + 273.15,
+                        "fahrenheit": (temp) => temp * (9 / 5) + 32,
+                    },
+                    "kelvin": {
+                        "celsius": (temp) => temp - 273.15,
+                        "fahrenheit": (temp) => (temp - 273.15) * (9 / 5) + 32,
+                    },
+                    "fahrenheit": {
+                        "celsius": (temp) => (temp - 32) * (5 / 9),
+                        "kelvin": (temp) => (temp - 32) * (5 / 9) + 273.15,
+                    },
+                };
+            
+                // Perform conversion
+                if (conversionFormulas[convertingTemperature] && conversionFormulas[convertingTemperature][newTemperature]) {
+                    const convertedTemp = conversionFormulas[convertingTemperature][newTemperature](userTemperatureValue);
+                    convertedValue.innerText = convertedTemp.toFixed(2);
+                    
+                    // Call categorizeTemperature with the correct scale
+                    const category = categorizeTemperature(convertedTemp, newTemperature);
+                    console.log(`The temperature is categorized as: ${category}`);
                 }
-                
-            }
+            } 
+            
+            
+            function categorizeTemperature(temp, scale) {
+                const temperatureMeter = document.querySelector("#temperatureMeter");
+                let category = "Unknown scale";
+                let height = 0; // Initialize height variable
+            
+                // Determine category and height based on the temperature scale
+                if (scale === "celsius") {
+                    if (temp <= 0) {
+                        category = "Freezing";
+                        height = temp; // 0px for freezing
+                    } else if (temp <= 10) {
+                        category = "Cold";
+                        height = temp; // 50px for cold
+                    } else if (temp <= 25) {
+                        category = "Warm";
+                        height = temp; // 115px for warm
+                    } else {
+                        category = "Hot";
+                        height = Math.min(230, (temp - 25) * (230 / 75) + 115); // Scale above 25°C to height, capped at 230px
+                    }
+                } else if (scale === "kelvin") {
+                    const celsiusTemp = temp - 273.15; // Convert to Celsius for categorization
+                    return categorizeTemperature(celsiusTemp, "celsius"); // Call with Celsius scale
+                } else if (scale === "fahrenheit") {
+                    const celsiusTemp = (temp - 32) * (5 / 9); // Convert to Celsius for categorization
+                    return categorizeTemperature(celsiusTemp, "celsius"); // Call with Celsius scale
+                }
+            
+                // Set the class and height for the temperatureMeter
+                temperatureMeter.className = `temperatureMeter ${category.toLowerCase()}`; // Assign the appropriate class
+                temperatureMeter.style.height = height + "px"; // Set the height based on category
+            
+                return category; // Return the category
+            }        
         }
     
     }

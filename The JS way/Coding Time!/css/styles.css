@@ -379,14 +379,35 @@ input#userTemperatureValue{
     display: flex;
 }
 
-#temperatureMeter{
-    width: 20px;
-    max-height: 230px;
-    margin: 0 0 5px 15px;
-    align-self: flex-end;
-}
-
 #convertedValue{
     text-align: center;
     margin-top: 30px;
+}
+
+.temperatureMeter {
+    max-height: 230px;
+    margin: 0 0 5px 15px;
+    align-self: flex-end;
+    width: 10px;
+    transition: all 0.5s; /* Smooth transition for size and color changes */
+}
+
+.freezing {
+    background-color: blue; /* Color for freezing */
+    width: 50px; /* Adjusted width for freezing */
+}
+
+.cold {
+    background-color: lightblue; /* Color for cold */
+    width: 70px; /* Adjusted width for cold */
+}
+
+.warm {
+    background-color: orange; /* Color for warm */
+    width: 90px; /* Adjusted width for warm */
+}
+
+.hot {
+    background-color: red; /* Color for hot */
+    width: 100px; /* Adjusted width for hot */
 }
