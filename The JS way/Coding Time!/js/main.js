@@ -357,38 +357,7 @@ if (document.querySelector("#fullNameEnter")){
             
             
             function categorizeTemperature(temp, scale) {
-                const temperatureMeter = document.querySelector("#temperatureMeter");
-                let category = "Unknown scale";
-                let height = 0; // Initialize height variable
-            
-                // Determine category and height based on the temperature scale
-                if (scale === "celsius") {
-                    if (temp <= 0) {
-                        category = "Freezing";
-                        height = temp; // 0px for freezing
-                    } else if (temp <= 10) {
-                        category = "Cold";
-                        height = temp; // 50px for cold
-                    } else if (temp <= 25) {
-                        category = "Warm";
-                        height = temp; // 115px for warm
-                    } else {
-                        category = "Hot";
-                        height = Math.min(230, (temp - 25) * (230 / 75) + 115); // Scale above 25°C to height, capped at 230px
-                    }
-                } else if (scale === "kelvin") {
-                    const celsiusTemp = temp - 273.15; // Convert to Celsius for categorization
-                    return categorizeTemperature(celsiusTemp, "celsius"); // Call with Celsius scale
-                } else if (scale === "fahrenheit") {
-                    const celsiusTemp = (temp - 32) * (5 / 9); // Convert to Celsius for categorization
-                    return categorizeTemperature(celsiusTemp, "celsius"); // Call with Celsius scale
-                }
-            
-                // Set the class and height for the temperatureMeter
-                temperatureMeter.className = `temperatureMeter ${category.toLowerCase()}`; // Assign the appropriate class
-                temperatureMeter.style.height = height + "px"; // Set the height based on category
-            
-                return category; // Return the category
+    
             }        
         }
     
