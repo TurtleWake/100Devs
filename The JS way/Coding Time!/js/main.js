@@ -357,7 +357,8 @@ if (document.querySelector("#fullNameEnter")){
             
             
             function categorizeTemperature(temp, scale) {
-                
+                // -1000 -> -1 = height: 1px;
+                // 200 = height: 230px
             }        
         }
     
