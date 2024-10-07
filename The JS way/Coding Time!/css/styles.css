@@ -384,30 +384,32 @@ input#userTemperatureValue{
     margin-top: 30px;
 }
 
-.temperatureMeter {
+#temperatureMeter {
+    height: 230px;
     max-height: 230px;
     margin: 0 0 5px 15px;
     align-self: flex-end;
-    width: 10px;
-    transition: all 0.5s; /* Smooth transition for size and color changes */
+    width: 30px;
+    transition: all 0.5s; 
+    background: blue;
 }
 
 .freezing {
-    background-color: blue; /* Color for freezing */
-    width: 50px; /* Adjusted width for freezing */
+    background-color: blue; 
+    width: 50px; 
 }
 
 .cold {
-    background-color: lightblue; /* Color for cold */
-    width: 70px; /* Adjusted width for cold */
+    background-color: lightblue; 
+    width: 70px;
 }
 
 .warm {
-    background-color: orange; /* Color for warm */
-    width: 90px; /* Adjusted width for warm */
+    background-color: orange; 
+    width: 90px; 
 }
 
 .hot {
-    background-color: red; /* Color for hot */
-    width: 100px; /* Adjusted width for hot */
+    background-color: red;
+    width: 100px; 
 }

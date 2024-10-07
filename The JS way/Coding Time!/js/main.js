@@ -357,7 +357,7 @@ if (document.querySelector("#fullNameEnter")){
             
             
             function categorizeTemperature(temp, scale) {
-    
+                
             }        
         }
     
