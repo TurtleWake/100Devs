@@ -301,6 +301,7 @@ button{
 
 #thermometerAlignment{
     display: flex;
+    flex-direction: column;
     margin-top: 20px;
 }
 
@@ -312,6 +313,7 @@ button{
     padding: 15px;
     font-size: .8rem;
     margin-right: 15px;
+    margin-bottom: 15px;
 }
 
 #thermometerSettings h3{
@@ -363,9 +365,11 @@ input#userTemperatureValue{
 }
 
 .temperatureNotch{
+    display: flex;
+    flex-direction: column;
     border: 1px var(--font) solid;
-    height: .5px;
-    width: 10px;
+    height: 10px;
+    width: .5px;
     margin-left: 3px;
 }
 
@@ -375,7 +379,12 @@ input#userTemperatureValue{
     align-items: center;
 }
 
-#thermometerObjectAlignment{
+.notchAlignment{
+    display: flex;
+    flex-direction: column;
+}
+
+#temperatureNumbersAndNotches{
     display: flex;
 }
 
@@ -385,12 +394,11 @@ input#userTemperatureValue{
 }
 
 #temperatureMeter {
-    height: 230px;
-    max-height: 230px;
+    max-height: 30px;
     margin: 0 0 5px 15px;
     align-self: flex-end;
-    width: 30px;
-    transition: all 0.5s; 
+    width: 100px;
+    transition: all 0.5s;
     background: blue;
 }
 
