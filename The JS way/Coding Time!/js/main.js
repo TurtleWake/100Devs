@@ -260,32 +260,22 @@ if (document.querySelector("#fullNameEnter")){
                             <div id="temperatureNumbersAndNotches">
                                 <div class="notchAlignment">               
                                     <span class="temperatureNumber">
-                                        200<div class="temperatureNotch"></div>
+                                        0<div class="temperatureNotch"></div>
                                     </span>
                                 </div>    
                                 <div class="notchAlignment">
                                     <span class="temperatureNumber">
-                                        180<div class="temperatureNotch"></div>
+                                        20<div class="temperatureNotch"></div>
                                     </span>
                                 </div>
                                 <div class="notchAlignment">
                                     <span class="temperatureNumber">
-                                        160<div class="temperatureNotch"></div>
+                                        40<div class="temperatureNotch"></div>
                                     </span>
                                 </div>
                                 <div class="notchAlignment">    
                                     <span class="temperatureNumber">
-                                        140<div class="temperatureNotch"></div>
-                                    </span>
-                                </div>
-                                <div class="notchAlignment">
-                                    <span class="temperatureNumber">
-                                        120<div class="temperatureNotch"></div>
-                                    </span>
-                                </div>
-                                <div class="notchAlignment">
-                                    <span class="temperatureNumber">
-                                        100<div class="temperatureNotch"></div>
+                                        60<div class="temperatureNotch"></div>
                                     </span>
                                 </div>
                                 <div class="notchAlignment">
@@ -295,22 +285,57 @@ if (document.querySelector("#fullNameEnter")){
                                 </div>
                                 <div class="notchAlignment">
                                     <span class="temperatureNumber">
-                                        60<div class="temperatureNotch"></div>
+                                        100<div class="temperatureNotch"></div>
                                     </span>
                                 </div>
                                 <div class="notchAlignment">
                                     <span class="temperatureNumber">
-                                        40<div class="temperatureNotch"></div>
+                                        120<div class="temperatureNotch"></div>
                                     </span>
                                 </div>
                                 <div class="notchAlignment">
                                     <span class="temperatureNumber">
-                                        20<div class="temperatureNotch"></div>
+                                        140<div class="temperatureNotch"></div>
                                     </span>
                                 </div>
                                 <div class="notchAlignment">
                                     <span class="temperatureNumber">
-                                        0<div class="temperatureNotch"></div>
+                                        160<div class="temperatureNotch"></div>
+                                    </span>
+                                </div>
+                                <div class="notchAlignment">
+                                    <span class="temperatureNumber">
+                                        180<div class="temperatureNotch"></div>
+                                    </span>
+                                </div>
+                                <div class="notchAlignment">
+                                    <span class="temperatureNumber">
+                                        200<div class="temperatureNotch"></div>
+                                    </span>
+                                </div>
+                                <div class="notchAlignment">
+                                    <span class="temperatureNumber">
+                                        220<div class="temperatureNotch"></div>
+                                    </span>
+                                </div>
+                                <div class="notchAlignment">
+                                    <span class="temperatureNumber">
+                                        240<div class="temperatureNotch"></div>
+                                    </span>
+                                </div>
+                                <div class="notchAlignment">
+                                    <span class="temperatureNumber">
+                                        260<div class="temperatureNotch"></div>
+                                    </span>
+                                </div>
+                                <div class="notchAlignment">
+                                    <span class="temperatureNumber">
+                                        280<div class="temperatureNotch"></div>
+                                    </span>
+                                </div>
+                                <div class="notchAlignment">
+                                    <span class="temperatureNumber">
+                                        300<div class="temperatureNotch"></div>
                                     </span>
                                 </div>
                             </div>
@@ -348,18 +373,95 @@ if (document.querySelector("#fullNameEnter")){
                 if (conversionFormulas[convertingTemperature] && conversionFormulas[convertingTemperature][newTemperature]) {
                     const convertedTemp = conversionFormulas[convertingTemperature][newTemperature](userTemperatureValue);
                     convertedValue.innerText = convertedTemp.toFixed(2);
-                    
-                    // Call categorizeTemperature with the correct scale
-                    const category = categorizeTemperature(convertedTemp, newTemperature);
-                    console.log(`The temperature is categorized as: ${category}`);
+            
+                    // Set the size of the temperature meter
+                    updateTemperatureMeter(convertedTemp, newTemperature);
                 }
-            } 
+            }
+            
+            function updateTemperatureMeter(temp, scale) {
+                const temperatureMeter = document.querySelector("#temperatureMeter");
+            
+                // Define the ranges for temperature and pixel width
+                const maxTemp = 300; // maximum temperature (300 degrees)
+                const minTemp = 0;   // minimum temperature (0 degrees)
+                const maxWidth = 550; // max width of the meter in pixels
+            
+                // Calculate the pixel width per degree
+                const tempRange = maxTemp - minTemp;
+                const pixelPerDegree = maxWidth / tempRange;
+            
+                // Calculate the width of the meter based on the converted temperature
+                let width = Math.max(0, Math.min((temp) * pixelPerDegree, maxWidth)); // Ensure width stays within 0 and maxWidth
+            
+                // Set the width of the temperature meter dynamically
+                temperatureMeter.style.width = `${width}px`;
+            
+                // Get the temperature category and apply corresponding style
+                const category = categorizeTemperature(temp, scale);
+                temperatureMeter.className = ''; // Reset previous classes
+                if (category === "Freezing") {
+                    temperatureMeter.classList.add('freezing');
+                } else if (category === "Very Cold") {
+                    temperatureMeter.classList.add('very-cold');
+                } else if (category === "Cold") {
+                    temperatureMeter.classList.add('cold');
+                } else if (category === "Warm") {
+                    temperatureMeter.classList.add('warm');
+                } else if (category === "Hot") {
+                    temperatureMeter.classList.add('hot');
+                } else if (category === "Very Hot") {
+                    temperatureMeter.classList.add('very-hot');
+                } else if (category === "Extremely Hot") {
+                    temperatureMeter.classList.add('extremely-hot');
+                }
+            }            
             
             
             function categorizeTemperature(temp, scale) {
-                // -1000 -> -1 = height: 1px;
-                // 200 = height: 230px
-            }        
+                if (scale === "celsius") {
+                    if (temp <= 0) return "Freezing";
+                    if (temp <= 10) return "Very Cold";
+                    if (temp <= 25) return "Cold";
+                    if (temp <= 40) return "Warm";
+                    if (temp <= 60) return "Hot";
+                    if (temp <= 100) return "Very Hot";
+                    return "Extremely Hot";  // For anything above 100°C
+                } else if (scale === "kelvin") {
+                    if (temp <= 273.15) return "Freezing";
+                    if (temp <= 283.15) return "Very Cold";
+                    if (temp <= 298.15) return "Cold";
+                    if (temp <= 313.15) return "Warm";
+                    if (temp <= 333.15) return "Hot";
+                    if (temp <= 373.15) return "Very Hot";
+                    return "Extremely Hot";  // For anything above 373.15K (boiling point in K)
+                } else if (scale === "fahrenheit") {
+                    if (temp <= 32) return "Freezing";
+                    if (temp <= 50) return "Very Cold";
+                    if (temp <= 77) return "Cold";
+                    if (temp <= 104) return "Warm";
+                    if (temp <= 140) return "Hot";
+                    if (temp <= 212) return "Very Hot";
+                    return "Extremely Hot";  // For anything above 212°F (boiling point in °F)
+                }
+                return "Unknown scale";
+            }
+            
+            
+            function getColorForCategory(category) {
+                switch (category) {
+                    case "Freezing":
+                        return "lightblue";
+                    case "Cold":
+                        return "blue";
+                    case "Warm":
+                        return "orange";
+                    case "Hot":
+                        return "red";
+                    default:
+                        return "gray";
+                }
+            }      
         }
     
     }
