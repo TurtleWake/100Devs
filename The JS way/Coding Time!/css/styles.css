@@ -390,7 +390,7 @@ input#userTemperatureValue{
     margin-top: 10px;
 }
 
-/* Styles for the temperature meter */
+/* Styles for the temperature meter  */
 #temperatureMeter {
     transition: width 0.5s ease, background-color 0.5s ease;
     height: 30px; 
