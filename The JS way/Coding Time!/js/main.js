@@ -352,7 +352,7 @@ if (document.querySelector("#fullNameEnter")){
                 const convertingTemperature = document.querySelector('input[name="convertingTemperature"]:checked').value;
                 const newTemperature = document.querySelector('input[name="newTemperature"]:checked').value;
                 let convertedValue = document.querySelector("#convertedValue");
-            
+
                 // Define conversion functions
                 const conversionFormulas = {
                     "celsius": {
@@ -374,49 +374,82 @@ if (document.querySelector("#fullNameEnter")){
                     const convertedTemp = conversionFormulas[convertingTemperature][newTemperature](userTemperatureValue);
                     convertedValue.innerText = convertedTemp.toFixed(2);
             
-                    // Set the size of the temperature meter
+                    // Set the size and color of the temperature meter
                     updateTemperatureMeter(convertedTemp, newTemperature);
                 }
+
+                 // Call new button
+                 document.querySelector("#p3").innerHTML = 
+                 `
+                 Let's move on to Variable Swapping! Please click the balloon. <i class='bx bxs-balloon' id='changeToVariableSwappingPage'></i>
+                 `
+
+                 document.querySelector("#changeToVariableSwappingPage").addEventListener("click", changeToVariableSwappingPage)
             }
             
             function updateTemperatureMeter(temp, scale) {
                 const temperatureMeter = document.querySelector("#temperatureMeter");
+
+                // Define the exact pixel values for specific temperatures
+                const temperatureNotches = {
+                    0: 0.08,
+                    10: 19,
+                    20: 33,
+                    30: 47,
+                    40: 63,
+                    50: 78,
+                    60: 90,
+                    70: 105,
+                    80: 121,
+                    90: 136,
+                    100: 155,
+                    110: 175,
+                    120: 190,
+                    130: 205,
+                    140: 220,
+                    150: 235,
+                    160: 250,
+                    170: 265,
+                    180: 280,
+                    190: 310,
+                    200: 347,
+                    210: 367,
+                    220: 387,
+                    230: 407,
+                    240: 427,
+                    250: 447,
+                    260: 467,
+                    270: 487,
+                    280: 507,
+                    290: 527,
+                    300: 544,
+                    "300+": 550
+                };
             
-                // Define the ranges for temperature and pixel width
-                const maxTemp = 300; // maximum temperature (300 degrees)
-                const minTemp = 0;   // minimum temperature (0 degrees)
-                const maxWidth = 550; // max width of the meter in pixels
+                function getInterpolatedWidth(temp) {
+                    if (temp >= 300) return temperatureNotches["300+"];
             
-                // Calculate the pixel width per degree
-                const tempRange = maxTemp - minTemp;
-                const pixelPerDegree = maxWidth / tempRange;
+                    const lowerBound = Math.floor(temp / 10) * 10;
+                    const upperBound = lowerBound + 10;
             
-                // Calculate the width of the meter based on the converted temperature
-                let width = Math.max(0, Math.min((temp) * pixelPerDegree, maxWidth)); // Ensure width stays within 0 and maxWidth
+                    const lowerWidth = temperatureNotches[lowerBound];
+                    const upperWidth = temperatureNotches[upperBound];
             
-                // Set the width of the temperature meter dynamically
+                    if (lowerWidth !== undefined && upperWidth !== undefined) {
+                        const ratio = (temp - lowerBound) / (upperBound - lowerBound);
+                        return lowerWidth + (upperWidth - lowerWidth) * ratio;
+                    }
+            
+                    return lowerWidth || 0;
+                }
+            
+                const width = getInterpolatedWidth(temp);
+            
                 temperatureMeter.style.width = `${width}px`;
             
-                // Get the temperature category and apply corresponding style
                 const category = categorizeTemperature(temp, scale);
-                temperatureMeter.className = ''; // Reset previous classes
-                if (category === "Freezing") {
-                    temperatureMeter.classList.add('freezing');
-                } else if (category === "Very Cold") {
-                    temperatureMeter.classList.add('very-cold');
-                } else if (category === "Cold") {
-                    temperatureMeter.classList.add('cold');
-                } else if (category === "Warm") {
-                    temperatureMeter.classList.add('warm');
-                } else if (category === "Hot") {
-                    temperatureMeter.classList.add('hot');
-                } else if (category === "Very Hot") {
-                    temperatureMeter.classList.add('very-hot');
-                } else if (category === "Extremely Hot") {
-                    temperatureMeter.classList.add('extremely-hot');
-                }
-            }            
-            
+                temperatureMeter.style.backgroundColor = getColorForCategory(category);
+            }
             
             function categorizeTemperature(temp, scale) {
                 if (scale === "celsius") {
@@ -434,36 +467,45 @@ if (document.querySelector("#fullNameEnter")){
                     if (temp <= 313.15) return "Warm";
                     if (temp <= 333.15) return "Hot";
                     if (temp <= 373.15) return "Very Hot";
-                    return "Extremely Hot";  // For anything above 373.15K (boiling point in K)
+                    return "Extremely Hot";  // For anything above 373.15K
                 } else if (scale === "fahrenheit") {
                     if (temp <= 32) return "Freezing";
                     if (temp <= 50) return "Very Cold";
-                    if (temp <= 77) return "Cold";
-                    if (temp <= 104) return "Warm";
-                    if (temp <= 140) return "Hot";
-                    if (temp <= 212) return "Very Hot";
-                    return "Extremely Hot";  // For anything above 212°F (boiling point in °F)
+                    if (temp <= 70) return "Cold";
+                    if (temp <= 85) return "Warm";
+                    if (temp <= 100) return "Hot";
+                    if (temp <= 211) return "Very Hot";
+                    return "Extremely Hot";  // For anything above 212°F
                 }
                 return "Unknown scale";
             }
             
-            
             function getColorForCategory(category) {
                 switch (category) {
                     case "Freezing":
-                        return "lightblue";
+                        return "#00bfff"; // light blue (CSS: freezing)
+                    case "Very Cold":
+                        return "#add8e6"; // blue (CSS: very-cold)
                     case "Cold":
-                        return "blue";
+                        return "#48d1cc"; // light teal (CSS: cold)
                     case "Warm":
-                        return "orange";
+                        return "#ffd700"; // yellow (CSS: warm)
                     case "Hot":
-                        return "red";
+                        return "#ff8c00"; // orange (CSS: hot)
+                    case "Very Hot":
+                        return "#ff4500"; // red (CSS: very-hot)
+                    case "Extremely Hot":
+                        return "#b22222"; // dark red (CSS: extremely-hot)
                     default:
                         return "gray";
                 }
-            }      
+            } 
+            
+            function changeToVariableSwappingPage(){
+                console.log("click")
+                removePreviousInfo();
+            }
         }
     
     }
 }
-// hello there

@@ -392,46 +392,8 @@ input#userTemperatureValue{
 
 /* Styles for the temperature meter */
 #temperatureMeter {
-    transition: width 0.5s ease, background-color 0.5s ease; /* Smooth transition for color and width changes */
-    height: 30px; /* Fixed height for the meter */
-    width: 0px; /* Initially no width */
+    transition: width 0.5s ease, background-color 0.5s ease;
+    height: 30px; 
+    width: 0px; 
     border-radius: 10px;
 }
-
-/* Temperature Categories */
-
-/* Freezing: Blue shades */
-.freezing {
-    background-color: #00bfff; /* Light blue */
-}
-
-/* Very Cold: Lighter blue */
-.very-cold {
-    background-color: #add8e6; /* Lighter blue */
-}
-
-/* Cold: Teal shades */
-.cold {
-    background-color: #48d1cc; /* Light teal */
-}
-
-/* Warm: Yellow shades */
-.warm {
-    background-color: #ffd700; /* Gold */
-}
-
-/* Hot: Orange shades */
-.hot {
-    background-color: #ff8c00; /* Dark orange */
-}
-
-/* Very Hot: Red shades */
-.very-hot {
-    background-color: #ff4500; /* Red-orange */
-}
-
-/* Extremely Hot: Dark Red */
-.extremely-hot {
-    background-color: #b22222; /* Firebrick red */
-}
-
