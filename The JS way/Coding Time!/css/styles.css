@@ -91,7 +91,7 @@ h1{
 }
 
 h3{
-    font-size: 1rem;
+    font-size: 1.3rem;
 }
 
 span{
@@ -396,4 +396,9 @@ input#userTemperatureValue{
     height: 30px; 
     width: 0px; 
     border-radius: 10px;
+}
+
+/* Variable Swapping */
+#magnifyingGlass{
+    font-size: 3rem;
 }

@@ -505,7 +505,7 @@ if (document.querySelector("#fullNameEnter")){
                 removePreviousInfo();
                 document.querySelector('h2').innerText = "Variable swapping";
                 document.querySelector('#p1').innerText = "Observe the following program.";
-                document.querySelector('#p3').innerText = "Add the necessary code to swap the values of variables number1 and number2."
+                document.querySelector('#p3').innerHTML = `Add the necessary code to swap the values of variables number1 and number2.<i class="bx bx-search-alt-2" id="magnifyingGlass"></i> < Hover for my answer!`
                 document.querySelector('#d1').innerHTML = 
                 `
                 <pre>
@@ -527,9 +527,30 @@ if (document.querySelector("#fullNameEnter")){
                 // Using Array Destructuring
                 [number1, number2] = [number2, number1];
 
-                console.log("number1 = ", number1 ); // Should show 3
-                console.log("number2 = ", number2); // Should show 5
+                console.log("number1 = ", number1 ); 
+                console.log("number2 = ", number2); 
                 
+
+                document.querySelector("#magnifyingGlass").addEventListener('mouseover', () => {
+                    document.querySelector("#d1").innerHTML = 
+                        `
+                        <pre>
+                        <code id='finalValueCode'>
+                        let number1 = 5;
+                        let number2 = 3;
+
+                        // TODO: type your code here (and nowhere else!)
+                        
+                        // Using Array Destructuring
+                        [number1, number2] = [number2, number1];
+
+                        console.log(number1); // Should show 3
+                        console.log(number2); // Should show 5
+                        </code>
+                        </pre>
+                
+                        `
+                });
             }
         }
     
