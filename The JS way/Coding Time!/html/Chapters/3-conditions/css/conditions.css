@@ -1,5 +1,9 @@
 
 /* Main configuration */
+#mainLayout #mainDiv{
+    font-size: 2rem !important;
+}
+
 
 #mainDiv h2{
     font-size: 1.4rem;    
