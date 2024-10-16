@@ -1,10 +1,39 @@
 
 /* Main configuration */
-#mainLayout #mainDiv{
-    font-size: 2rem !important;
+
+:root{
+    --background: #2E363E;
+    --font: #DFE9F2;
+    --accents: #91A0AF;
+    --secondAccent: #80BFEB;
+    --navBar: #4051B5;
+    --hovering: #6B90D3;
 }
 
+#addConditionsLayout{  
+    font-size: 1.3rem;
+}
 
-#mainDiv h2{
-    font-size: 1.4rem;    
+h2{
+    font-size: 2rem;
+}
+
+#d1{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#userInput{
+    font-size: 1.35rem;
+    background-color: var(--accents);
+    color: var(--font);
+    border: 2px solid var(--navBar);
+}
+
+#usersDayChoice{
+    font-size: 1rem;
+    padding: 3.2px;
+    margin: 1px;
+    border: 2px solid var(--navBar);
 }
