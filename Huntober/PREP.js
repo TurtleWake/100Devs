@@ -1,32 +1,14 @@
-//Given a number as an input, print out every interger from 1 to that number. However, when the integer is divisible by 3, print out "Fizz"; when it's divisible by 5, print out "Buzz"; when it's divisible by both 3 and 5, print out "Fizz Buzz".
+// It's the academic year's end, fateful moment of your school report. The averages must be calculated. All the students come to you and entreat you to calculate their average for them. Easy ! You just need to write a script.
 
-// PREP
-// num -> 1 to that num -> div 3 fizz; div 5 buzz; div 3/5 fizz buzz
-// always int; pos; no floats; no funny business; int always
-// print to console; notes
+// Return the average of the given array rounded down to its nearest integer.
 
+// The array will never be empty.
 
-
-// print out every interger from 1 to that number
-function fizzBuss(){
-    let number = userInput;
-
-    if(userInput % 3 === 0 && userInput % 5 === 0){
-    // when it's divisible by both 3 and 5 print out "Fizz Buzz" 
-        console.log("Fizz Buzz")
-
-    }else if(userInput % 3 === 0){
-    // when the integer is divisible by 3, print out "Fizz"
-        console.log("Fizz")
+const getAverage = (arr) => Math.trunc(arr.reduce((a, c) => a + c, 0) / arr.length);
 
 
-    
-    }else if(userInput % 5 === 0){
-    // when it's divisible by 5 print out "Buzz";
-        console.log("Buzz")
 
-    }else{
-        console.log("Not compatible")
-    }
-}
+// getAverage([2,2,2,2]),2);
+// getAverage([1,2,3,4,5,]),3);
+// getAverage([1,1,1,1,1,1,1,2]),1);
 
