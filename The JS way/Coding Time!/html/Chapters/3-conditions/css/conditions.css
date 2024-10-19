@@ -10,7 +10,11 @@
     --hovering: #6B90D3;
 }
 
-#addConditionsLayout{  
+#addConditionsLayout{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-size: 1.3rem;
 }
 
@@ -24,6 +28,8 @@ h2{
     margin-top: 10px;
 }
 
+/* Following day */
+
 #userInput{
     font-size: 1.35rem;
     background-color: var(--accents);
@@ -36,4 +42,22 @@ h2{
     padding: 3.2px;
     margin: 1px;
     border: 2px solid var(--navBar);
+}
+
+/* Number comparison */
+
+
+#d1{
+    margin-top: 50px;
+}
+
+#number1, #number2{
+    height: 30px;
+    width: 30px;
+    background: var(--accents);
+    margin: auto;
+}
+
+#dynamicResponse{
+    margin: 10px;
 }

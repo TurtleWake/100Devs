@@ -56,7 +56,7 @@ function nextPage(){
     d1.innerHTML = 
     `
     <input id='number1'>
-    <p>Compared to</p>
+    <p id='dynamicResponse'></p>
     <input id='number2'>
     `
 }
