@@ -52,11 +52,121 @@ function nextDay(){
 function nextPage(){
     removePreviousInfo();
     h2.innerText = 'Number comparison'
-    p1.innerText = 'Write a program that accepts two numbers, then compares their values and displays an appropriate message in all cases.'
+    p1.innerText = 'Write a program that accepts two numbers, then compares their values and displays an appropriate message in all cases. Put in 3 and 3 to move onto the next problem!'
     d1.innerHTML = 
     `
     <input id='number1'>
     <p id='dynamicResponse'></p>
     <input id='number2'>
     `
+    document.querySelector('#number1').addEventListener('input', dynamicResponse);
+    document.querySelector('#number2').addEventListener('input', dynamicResponse);
+};
+
+
+
+function dynamicResponse(){
+    let input1 = parseFloat(document.querySelector('#number1').value);
+    let input2 = parseFloat(document.querySelector('#number2').value);
+
+    console.log("Input1: ", input1);
+    console.log("Input2: ", input2);
+
+        if(input1 > input2){
+            result = '>'
+        }else if(input1 < input2){
+            result = '<'
+        }else if(input1 === 3 && input2 === 3){
+            result = '='
+            p2.innerHTML = `<i class='bx bxs-shower' id='shower'></i> Click me to move on!`
+            document.querySelector('#shower').addEventListener('click', finalValuesShower)
+        }else if(input1 === input2){
+            result = '='
+        }else{
+            result = 'Add #'
+        }
+
+        document.querySelector('#dynamicResponse').innerText = result;
+        
+}
+
+
+
+function finalValuesShower(){
+    removePreviousInfo();
+    h2.innerText = 'Final values';
+    p1.innerText = 'Take a look at the following program.';
+    pre1.classList.toggle('hidden');
+
+    let nb1 = Number(prompt("Enter nb1:"));
+    let nb2 = Number(prompt("Enter nb2:"));
+    let nb3 = Number(prompt("Enter nb3:"));
+
+    if (nb1 > nb2) {
+    nb1 = nb3 * 2;
+    } else {
+    nb1++;
+    if (nb2 > nb3) {
+        nb1 += nb3 * 3;
+    } else {
+        nb1 = 0;
+        nb3 = nb3 * 2 + nb2;
+    }
+    }
+    console.log(nb1, nb2, nb3);
+
+
+    code.innerHTML = 
+    `
+let nb1 = Number(prompt("Enter nb1:"));
+let nb2 = Number(prompt("Enter nb2:"));
+let nb3 = Number(prompt("Enter nb3:"));
+
+if (nb1 > nb2) {
+nb1 = nb3 * 2;
+} else {
+nb1++;
+if (nb2 > nb3) {
+    nb1 += nb3 * 3;
+} else {
+    nb1 = 0;
+    nb3 = nb3 * 2 + nb2;
+}
+}
+console.log(nb1, nb2, nb3);
+    `
+
+    p2.innerText = 'Before executing it, try to guess the final values of variables nb1, nb2 and nb3 depending on their initial values. Complete the following table.';
+    d1.innerHTML = `<table border="1">
+    <thead>
+        <tr>
+            <th>Initial values</th>
+            <th>nb1 final value</th>
+            <th>nb2 final value</th>
+            <th>nb3 final value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>nb1=nb2=nb3=4</td>
+            <td>${nb1}</td>
+            <td>${nb2}</td>
+            <td>${nb3}</td>
+        </tr>
+        <tr>
+            <td>nb1=4, nb2=3, nb3=2</td>
+            <td>${nb1}</td>
+            <td>${nb2}</td>
+            <td>${nb3}</td>
+        </tr>
+        <tr>
+            <td>nb1=2, nb2=4, nb3=0</td>
+            <td>${nb1}</td>
+            <td>${nb2}</td>
+            <td>${nb3}</td>
+        </tr>
+    </tbody>
+</table>
+`
+    p3.innerText = 'Check your predictions by executing the program.'
 }

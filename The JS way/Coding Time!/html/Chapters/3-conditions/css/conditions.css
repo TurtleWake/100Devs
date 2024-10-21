@@ -10,6 +10,7 @@
     --hovering: #6B90D3;
 }
 
+
 #addConditionsLayout{ 
     display: flex;
     flex-direction: column;
@@ -48,7 +49,7 @@ h2{
 
 
 #d1{
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 #number1, #number2{
@@ -56,8 +57,29 @@ h2{
     width: 30px;
     background: var(--accents);
     margin: auto;
+    color: var(--font);
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 #dynamicResponse{
     margin: 10px;
+    font-size: 1rem;
+}
+
+#shower{
+    margin-top: 15px;
+    font-size: 3rem;
+}
+
+#pre1{
+    font-size: 1rem;
+    background: var(--accents);
+    padding: 20px;
+    border: 2px solid var(--navBar);
+    margin: 10px 0;
+}
+
+#d1 table{
+    font-size: 1.5rem;
 }
