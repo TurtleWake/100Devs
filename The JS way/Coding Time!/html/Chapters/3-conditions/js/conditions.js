@@ -98,9 +98,9 @@ function finalValuesShower(){
     p1.innerText = 'Take a look at the following program.';
     pre1.classList.toggle('hidden');
 
-    let nb1 = Number(prompt("Enter nb1:"));
-    let nb2 = Number(prompt("Enter nb2:"));
-    let nb3 = Number(prompt("Enter nb3:"));
+    let nb1 = '';
+    let nb2 = '';
+    let nb3 = '';
 
     if (nb1 > nb2) {
     nb1 = nb3 * 2;
@@ -161,6 +161,12 @@ console.log(nb1, nb2, nb3);
         </tr>
         <tr>
             <td>nb1=2, nb2=4, nb3=0</td>
+            <td>${nb1}</td>
+            <td>${nb2}</td>
+            <td>${nb3}</td>
+        </tr>
+        <tr>
+            <td>nb1=, nb2=4, nb3=0</td>
             <td>${nb1}</td>
             <td>${nb2}</td>
             <td>${nb3}</td>
