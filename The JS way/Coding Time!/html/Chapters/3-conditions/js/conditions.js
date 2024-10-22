@@ -137,7 +137,12 @@ console.log(nb1, nb2, nb3);
     `
 
     p2.innerText = 'Before executing it, try to guess the final values of variables nb1, nb2 and nb3 depending on their initial values. Complete the following table.';
-    d1.innerHTML = `<table border="1">
+    d1.innerHTML = `
+    <span>nb1 = <span><input id='inputNB1'>
+    <span>nb2 = <span><input id='inputNB2'>
+    <span>nb3 = <span><input id='inputNB3'>
+    
+    <table border="1">
     <thead>
         <tr>
             <th>Initial values</th>
