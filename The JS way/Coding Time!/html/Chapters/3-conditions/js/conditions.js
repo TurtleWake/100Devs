@@ -17,6 +17,7 @@ document.querySelector("#usersDayChoice").addEventListener("click", nextDay);
 
 function removePreviousInfo(){
     h2.innerText = "";
+    code.innerText = "";
     p1.innerText = "";
     p2.innerText = "";
     p3.innerText = "";
@@ -97,25 +98,6 @@ function finalValuesShower(){
     h2.innerText = 'Final values';
     p1.innerText = 'Take a look at the following program.';
     pre1.classList.toggle('hidden');
-
-    let nb1 = '';
-    let nb2 = '';
-    let nb3 = '';
-
-    if (nb1 > nb2) {
-    nb1 = nb3 * 2;
-    } else {
-    nb1++;
-    if (nb2 > nb3) {
-        nb1 += nb3 * 3;
-    } else {
-        nb1 = 0;
-        nb3 = nb3 * 2 + nb2;
-    }
-    }
-    console.log(nb1, nb2, nb3);
-
-
     code.innerHTML = 
     `
 let nb1 = Number(prompt("Enter nb1:"));
@@ -154,30 +136,90 @@ console.log(nb1, nb2, nb3);
     <tbody>
         <tr>
             <td>nb1=nb2=nb3=4</td>
-            <td>${nb1}</td>
-            <td>${nb2}</td>
-            <td>${nb3}</td>
+            <td>0</td>
+            <td>4</td>
+            <td>12</td>
         </tr>
         <tr>
             <td>nb1=4, nb2=3, nb3=2</td>
-            <td>${nb1}</td>
-            <td>${nb2}</td>
-            <td>${nb3}</td>
+            <td>4</td>
+            <td>3</td>
+            <td>2</td>
         </tr>
         <tr>
             <td>nb1=2, nb2=4, nb3=0</td>
-            <td>${nb1}</td>
-            <td>${nb2}</td>
-            <td>${nb3}</td>
+            <td>3</td>
+            <td>4</td>
+            <td>0</td>
         </tr>
         <tr>
-            <td>nb1=, nb2=4, nb3=0</td>
-            <td>${nb1}</td>
-            <td>${nb2}</td>
-            <td>${nb3}</td>
+            <td>nb1=, nb2=, nb3=</td>
+            <td id="nb1Final"></td>
+            <td id="nb2Final"></td>
+            <td id="nb3Final"></td>
         </tr>
     </tbody>
 </table>
 `
+
+    
+
     p3.innerText = 'Check your predictions by executing the program.'
+
+    document.querySelector('#inputNB1').addEventListener('input', chartAdjustmentOnTheFly);
+    document.querySelector('#inputNB2').addEventListener('input', chartAdjustmentOnTheFly);
+    document.querySelector('#inputNB3').addEventListener('input', chartAdjustmentOnTheFly);
+}
+
+
+function chartAdjustmentOnTheFly(){
+    let nb1 = parseFloat(document.querySelector('#inputNB1').value);
+    let nb2 = parseFloat(document.querySelector('#inputNB2').value);
+    let nb3 = parseFloat(document.querySelector('#inputNB3').value);
+
+    if (isNaN(nb1)){
+        nb1 = 0
+    }
+    if (isNaN(nb2)){
+        nb2 = 0
+    }
+    if (isNaN(nb3)){
+        nb3 = 0
+    }
+
+    if (nb1 > nb2) {
+        nb1 = nb3 * 2;
+        } else {
+        nb1++;
+        if (nb2 > nb3) {
+            nb1 += nb3 * 3;
+        } else {
+            nb1 = 0;
+            nb3 = nb3 * 2 + nb2;
+        }
+    }
+    
+    document.querySelector('#nb1Final').textContent = nb1;
+    document.querySelector('#nb2Final').textContent = nb2;
+    document.querySelector('#nb3Final').textContent = nb3;
+
+    if (!isNaN(nb1) && !isNaN(nb2) && !isNaN(nb3)) {
+        p4.innerHTML = "<i class='bx bxs-calendar' id='moveToCalendar'></i> Move onto `Number of days in a month`";
+    }
+
+    document.querySelector('#moveToCalendar').addEventListener('click', daysInAMonth);
+}
+
+
+function daysInAMonth(){
+    removePreviousInfo();
+    pre1.classList.toggle('hidden');
+
+    h2.innerText = 'Number of days in a month'
+    p1.innerText = 'Write a program that accepts a month number (between 1 and 12), then shows the number of days of that month. Leap years are excluded. Incorrect inputs must be taken into account.'
+
+    d1.innerHTML = 
+    `
+    <input id='userMonth' placeholder='Insert month here...'>
+    `
 }
