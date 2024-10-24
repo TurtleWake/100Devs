@@ -120,9 +120,6 @@ console.log(nb1, nb2, nb3);
 
     p2.innerText = 'Before executing it, try to guess the final values of variables nb1, nb2 and nb3 depending on their initial values. Complete the following table.';
     d1.innerHTML = `
-    <span>nb1 = <span><input id='inputNB1'>
-    <span>nb2 = <span><input id='inputNB2'>
-    <span>nb3 = <span><input id='inputNB3'>
     
     <table border="1">
     <thead>
@@ -153,7 +150,11 @@ console.log(nb1, nb2, nb3);
             <td>0</td>
         </tr>
         <tr>
-            <td>nb1=, nb2=, nb3=</td>
+            <td>
+                nb1=<input id='inputNB1'>, 
+                nb2=<input id='inputNB2'>, 
+                nb3=<input id='inputNB3'>
+            </td>
             <td id="nb1Final"></td>
             <td id="nb2Final"></td>
             <td id="nb3Final"></td>
@@ -221,5 +222,45 @@ function daysInAMonth(){
     d1.innerHTML = 
     `
     <input id='userMonth' placeholder='Insert month here...'>
+    <button id='howManyDays'>How many days?</button>
     `
+
+    document.querySelector('#howManyDays').addEventListener('click', checkHowManyDays);
 }
+
+function checkHowManyDays() {
+    const months = [
+        { num: 1, name: "January", days: 31 },
+        { num: 2, name: "February", days: 28 },
+        { num: 3, name: "March", days: 31 },
+        { num: 4, name: "April", days: 30 },
+        { num: 5, name: "May", days: 31 },
+        { num: 6, name: "June", days: 30 },
+        { num: 7, name: "July", days: 31 },
+        { num: 8, name: "August", days: 31 },
+        { num: 9, name: "September", days: 30 },
+        { num: 10, name: "October", days: 31 },
+        { num: 11, name: "November", days: 30 },
+        { num: 12, name: "December", days: 31 }
+    ];
+
+    const userInput = document.getElementById('userMonth').value.trim(); 
+    console.log("User's Input: ", userInput);
+
+    const userInputNumber = parseInt(userInput, 10);
+    const monthByNumber = months.find(m => m.num === userInputNumber);
+
+    if (!isNaN(userInputNumber) && monthByNumber) {
+        p3.innerText = `${monthByNumber.name} has ${monthByNumber.days} days in it!`;
+    } 
+    else {
+        const monthByName = months.find(m => m.name.toLowerCase() === userInput.toLowerCase());
+
+        if (monthByName) {
+            p3.innerText = `${monthByName.name} has ${monthByName.days} days in it!`;
+        } else {
+            p3.innerText = "Please enter a valid month number (1-12) or month name.";
+        }
+    }
+}
+
