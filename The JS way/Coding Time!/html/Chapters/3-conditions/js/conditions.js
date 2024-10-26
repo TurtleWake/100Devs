@@ -252,12 +252,11 @@ function checkHowManyDays() {
     
     if(userInput === "Next"){
             followingSecond()
-        }
+    }
 
     if (!isNaN(userInputNumber) && monthByNumber) {
         p3.innerText = `${monthByNumber.name} has ${monthByNumber.days} days in it!`;
-    } 
-    else {
+    }else {
         const monthByName = months.find(m => m.name.toLowerCase() === userInput.toLowerCase());
 
         if (monthByName) {
@@ -271,15 +270,14 @@ function checkHowManyDays() {
 function followingSecond(){
     removePreviousInfo();
     h2.innerText = 'Following second';
-    p1.innerHTML = 
-    `
-    Write a program that asks for a time under the form of three information (hours, minutes, seconds). The program calculates and shows the time one second after. Incorrect inputs must be taken into account.
-    <br>
-    This is not as simple as it seems... Look at the following results to see for yourself:
+    p1.innerText = 'Write a program that asks for a time under the form of three information (hours, minutes, seconds).'
+    p2.innerText = 'The program calculates and shows the time one second after. Incorrect inputs must be taken into account.'
+    'This is not as simple as it seems... Look at the following results to see for yourself:'
+    d1.innerHTML = `
     <ul>
-    <li>14h17m59s should give 14h18m0s</li>
-    <li>6h59m59s should give 7h0m0s</li>
-    <li>23h59m59s should give 0h0m0s (midnight)</li>
+        <li>14h17m59s should give 14h18m0s</li>
+        <li>6h59m59s should give 7h0m0s</li>
+        <li>23h59m59s should give 0h0m0s (midnight)</li>
     </ul>
     `
 }
