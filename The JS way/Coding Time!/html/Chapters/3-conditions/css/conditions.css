@@ -118,7 +118,15 @@ h2{
 
 /* Following Seconds */
 
-#p1 ul{
+#p1 #seconds li{
     list-style-type: disc;
+    text-decoration: none;
     color: var(--font);
+}
+
+#userTimeInput{
+    font-size: 1.35rem;
+    background-color: var(--accents);
+    color: var(--font);
+    border: 2px solid var(--navBar)
 }

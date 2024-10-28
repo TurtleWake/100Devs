@@ -206,9 +206,9 @@ function chartAdjustmentOnTheFly(){
 
     if (!isNaN(nb1) && !isNaN(nb2) && !isNaN(nb3)) {
         p4.innerHTML = "<i class='bx bxs-calendar' id='moveToCalendar'></i> Move onto `Number of days in a month`";
+        document.querySelector('#moveToCalendar').addEventListener('click', daysInAMonth);
     }
-
-    document.querySelector('#moveToCalendar').addEventListener('click', daysInAMonth);
+    
 }
 
 
@@ -250,8 +250,9 @@ function checkHowManyDays() {
     const userInputNumber = parseInt(userInput, 10);
     const monthByNumber = months.find(m => m.num === userInputNumber);
     
-    if(userInput === "Next"){
-            followingSecond()
+    if(userInput === "Next") {
+        followingSecond();
+        return;
     }
 
     if (!isNaN(userInputNumber) && monthByNumber) {
@@ -271,14 +272,61 @@ function followingSecond(){
     removePreviousInfo();
     h2.innerText = 'Following second';
     p1.innerText = 'Write a program that asks for a time under the form of three information (hours, minutes, seconds).'
-    p2.innerText = 'The program calculates and shows the time one second after. Incorrect inputs must be taken into account.'
-    'This is not as simple as it seems... Look at the following results to see for yourself:'
+    p2.innerText = 'The program calculates and shows the time one second after. Incorrect inputs must be taken into account.This is not as simple as it seems... Look at the following results to see for yourself:'
     d1.innerHTML = `
-    <ul>
+    <ul id='seconds'>
         <li>14h17m59s should give 14h18m0s</li>
         <li>6h59m59s should give 7h0m0s</li>
         <li>23h59m59s should give 0h0m0s (midnight)</li>
     </ul>
     `
+    p3.innerHTML = 
+    `
+    <input id='userTimeInput' placeholder='00h00m00s insert your time...'>
+    <button id='increaseTime'>Check</button>
+    `
+
+    document.querySelector("#increaseTime").addEventListener("click", increaseByOne);
+}
+
+function isValidTimeFormat(userInput) {
+    const timePattern = /^(2[0-3]|[01]?[0-9])h?\s*(5[0-9]|[0-4]?[0-9])m?\s*(5[0-9]|[0-5]?[0-9])s?$/;
+    return timePattern.test(userInput.trim());
+}
+
+function increaseByOne() {
+    let userTime = document.querySelector("#userTimeInput").value;
+    
+    if (!isValidTimeFormat(userTime)) {
+        console.error("Invalid time format. Please use the format 'HHh MMm SSs'.");
+        alert("Invalid time format. Please use the format 'HHh MMm SSs'.");
+        return; 
+    }
+
+    let [hourStr, minStr, secStr] = userTime.split(/h|m|s/);
+    let hour = parseInt(hourStr) || 0; 
+    let min = parseInt(minStr) || 0;   
+    let sec = parseInt(secStr) || 0;   
+    console.log("Hours: ", hour);
+    console.log("Min: ", min);
+    console.log("Sec: ", sec);
+
+    sec += 1;
+
+    if (sec === 60) {
+        sec = 0; 
+        min += 1; 
+    }
+    if (min === 60) {
+        min = 0; 
+        hour += 1; 
+    }
+    if (hour === 24) {
+        hour = 0;
+    }
+
+    result = `${hour}h${min}m${sec}s`
+
+    p4.innerText = result;
 }
 
