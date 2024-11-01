@@ -4,16 +4,14 @@ h2{
     text-align: center;
 }
 
-#p1, #p2, #d1{
+#p1, #p2, #p3, #d1{
     text-align: center;
     margin: 15px 0;
 }
 
-#container3d canvas{
-    background: black;
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    top: 0;
-    left: 0;
+#userTurnCount{
+    background: var(--accents);
+    color: var(--font);
+    font-size: 25px;
+    border: 1px solid var(--navBar);
 }
