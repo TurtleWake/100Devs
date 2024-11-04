@@ -9,7 +9,7 @@ h2{
     margin: 15px 0;
 }
 
-#userTurnCount{
+#userCount{
     background: var(--accents);
     color: var(--font);
     font-size: 25px;
