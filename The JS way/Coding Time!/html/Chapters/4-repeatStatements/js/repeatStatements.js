@@ -14,3 +14,4 @@ function countDown(){
     }, 1000)
 }
 
+// I'd like to just get through this and move onto the next phase of this program so I'm just going to do the objective. No funny bizz.
