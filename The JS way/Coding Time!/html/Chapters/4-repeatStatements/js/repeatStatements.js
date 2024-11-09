@@ -14,4 +14,4 @@ function countDown(){
     }, 1000)
 }
 
-// Tomorrow we back on track, let's go! 
+// See ya Monday ;) 
