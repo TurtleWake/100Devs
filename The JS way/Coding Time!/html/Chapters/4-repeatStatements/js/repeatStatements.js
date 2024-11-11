@@ -8,10 +8,13 @@ function countDown(){
         if(count > 0){
             count--;
             document.querySelector('#turnCount').innerText = count;
-        } else if (count === 0){
-            document.querySelector('#turnCount').innerHTML = `<input id='userCount'>`
         }
     }, 1000)
+
+    if (count === 0){
+        document.querySelector('#d2').innerHTML = `<input id='userCount'`;
+        count = userCount;
+    }
 }
 
-// See ya Monday ;) 
+
