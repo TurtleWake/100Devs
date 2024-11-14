@@ -86,6 +86,11 @@ function parityPage(){
     }
 }
 
+// Let's try this the prep way. 
+// P
+// R
+// E
+// P
 
 
 
