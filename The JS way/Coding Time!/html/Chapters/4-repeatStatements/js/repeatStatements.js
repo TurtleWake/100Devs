@@ -121,7 +121,10 @@ function inputValidation(){
         p1.innerText = 'Guess the random number between 1 and 10. You have 3 lives to get it right or EXPLODE!'
         d1.innerHTML = `<input id='userGuess'><button id='checkIt'>Check</button>`
 
+        const button = document.querySelector('#checkIt');
+        const input = document.querySelector('#userGuess');
 
+        
 }
 
 
