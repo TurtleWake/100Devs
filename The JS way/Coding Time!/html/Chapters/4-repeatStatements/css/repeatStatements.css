@@ -12,7 +12,7 @@ h2{
     text-align: center;
 }
 
-#p1, #p2, #p3, #d1{
+#p1, #p2, #p3, #p4, #d1{
     text-align: center;
     margin: 15px 0;
 }
@@ -38,4 +38,10 @@ h2{
     margin: 10px 0;
 }
 
+
+/* Number Duel */
+
+.bxs-heart, .bx-heart{
+    font-size: 3rem;
+}
 
