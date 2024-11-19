@@ -123,7 +123,7 @@ function inputValidation(){
         d1.innerHTML = `<input id='userGuess'><button id='checkIt'>Check</button>`
 
         const button = document.querySelector('#checkIt');
-        const randomNum = getRandomInt();
+        
         const fullHeart = `<i class='bx bxs-heart'></i>`;
         const emptyHeart = `<i class='bx bx-heart' ></i>`;
 
@@ -133,23 +133,28 @@ function inputValidation(){
 
         button.addEventListener('click', function () {
             const userGuess = parseInt(document.querySelector('#userGuess').value);
+            const randomNum = getRandomInt();
             console.log('User Guess = ', userGuess)
+            console.log('Random Number = ', randomNum)
             if (isNaN(userGuess) || userGuess < 1 || userGuess > 10) {
                 alert("Please enter a number between 1 and 10!");
                 return;
             }
             
             if( userGuess === randomNum ) {
-                console.log("You did it!")
+                p3.innerHTML = "You did it!";
+                p4.innerHTML = `The random number is ${randomNum}`;
             } else {
                 lives--;
                 if (lives > 0){
-                    console.log('Uh oh, you lost a life!');
                     health = health.replace(fullHeart, emptyHeart);
                     p2.innerHTML = health;
+                    p3.innerHTML = "Uh oh, you lost a life!";
+                    p4.innerHTML = `The random number is ${randomNum}`;
                 } else {
-                    console.log('Game over!');
                     p2.innerHTML = "You've lost all your lives! The game is over."
+                    p3.innerHTML = "Game Over!";
+                    p4.innerHTML = `The random number is ${randomNum}`;
                     document.querySelector('#userGuess').disabled = true;
                     button.disabled = true;
                 }
