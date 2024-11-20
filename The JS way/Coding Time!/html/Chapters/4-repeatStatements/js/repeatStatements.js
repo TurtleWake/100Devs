@@ -143,7 +143,9 @@ function inputValidation(){
             
             if( userGuess === randomNum ) {
                 p3.innerHTML = "You did it!";
-                p4.innerHTML = `The random number is ${randomNum}`;
+                p4.innerHTML = `The random number is ${randomNum}. Click <i class='bx bx-diamond' id='winner'></i> to move on!`;
+
+                document.querySelector('#winner').addEventListener('click', yesOrNo);
             } else {
                 lives--;
                 if (lives > 0){
@@ -154,12 +156,18 @@ function inputValidation(){
                 } else {
                     p2.innerHTML = "You've lost all your lives! The game is over."
                     p3.innerHTML = "Game Over!";
-                    p4.innerHTML = `The random number is ${randomNum}`;
+                    p4.innerHTML = `The random number is ${randomNum}. Click <i class='bx bxs-skull' id='gameOver'></i> to move on.`;
                     document.querySelector('#userGuess').disabled = true;
                     button.disabled = true;
+                    document.querySelector('#gameOver').addEventListener('click', yesOrNo);
                 }
             }
         });
 }
 
 
+function yesOrNo(){
+    removePreviousInfo();
+    h2.innerText = 'Neither Yes nor No';
+    p1.innerText = 'Write a program that plays "neither yes, nor no" with the user. Specifically, the program asks the user to enter text until either "yes" or "no" is typed, which ends the game.';
+}
