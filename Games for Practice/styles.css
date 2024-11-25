@@ -4,3 +4,15 @@
     text-decoration: none;
     list-style: none;
 }
+
+body{
+    font-size: 62.50%;
+}
+
+/* Nav */
+nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.3rem;
+}
