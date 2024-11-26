@@ -1,3 +1,4 @@
+/* Resets */
 *{
     padding: 0;
     margin: 0;
@@ -5,8 +6,18 @@
     list-style: none;
 }
 
+/* Colors */
+:root{
+    --background: #011122;
+    --firstAccent: #023859;
+    --secondAccent: #024959;
+    --font: #91B7D9;
+    --highlight: #04ADBF;
+}
+
 body{
     font-size: 62.50%;
+    background: var(--background);
 }
 
 /* Nav */
@@ -14,5 +25,42 @@ nav ul{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    font-size: 1.3rem;
+    font-size: 2.5rem;
+    font-family: honk, Roboto;
+    color: orange;
+}
+
+nav video{
+    position: absolute;
+    width: 100%;
+    z-index: -2;
+    top: -10;
+}
+
+nav img{
+    height: 100px;
+}
+
+/* Main Section*/
+#main{
+    margin: 80px 200px;
+}
+
+h1{
+    font-family: modak;
+    font-size: 4rem;
+    font-weight: 200;
+    color: var(--highlight);
+}
+
+h2{
+    font-family: honk;
+    color: var(--highlight);
+    font-size: 2rem;
+    font-weight: 100;
+}
+
+#aboutMe{
+    font-size: 1.2rem;
+    color: var(--font);
 }
