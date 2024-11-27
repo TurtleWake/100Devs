@@ -46,21 +46,213 @@ nav img{
     margin: 80px 200px;
 }
 
-h1{
-    font-family: modak;
-    font-size: 4rem;
-    font-weight: 200;
-    color: var(--highlight);
-}
-
 h2{
     font-family: honk;
     color: var(--highlight);
     font-size: 2rem;
     font-weight: 100;
+    margin: 100px 0 20px;
 }
 
 #aboutMe{
     font-size: 1.2rem;
     color: var(--font);
+}
+
+/* Game Cards */
+#main ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gameCard{
+    background: black;
+    width: 130px;
+    height: 170px;
+    color: #04ADBF;
+    text-align: end;
+}
+
+.bubble-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.project-bubble {
+    width: 30%; /* Adjust the width as needed */
+    margin: 1%; /* Add some margin between bubbles */
+    position: relative;
+    filter: drop-shadow(8px 10px 5px rgba(29, 8, 46, 0.61));
+}
+
+
+.bubble {
+    position: relative;
+    width: 20vw;
+    height: 20vw;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.25);
+    animation: bubbly 6s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4vw;
+}
+
+.pop {
+    position: relative;
+    overflow: hidden;
+}
+
+.pop:hover {
+    transform: scale(1.2);
+}
+
+/* All Bubbles After First */
+#second {
+    animation: bubbly 3s ease-in-out infinite;
+}
+#third {
+    animation: bubbly 8s ease-in-out infinite;
+}
+#fourth {
+    animation: bubbly 5s ease-in-out infinite;
+}
+
+.bubble img {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 50%;
+    filter: blur(0.5px);
+    opacity: 0.5;
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, .5));
+}
+
+.bubble::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ffffffc5;
+    z-index: 10;
+    filter: blur(5px);
+}
+
+.bubble::after {
+    content: '';
+    position: absolute;
+    top: 75px;
+    left: 75px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ffffffc5;
+    z-index: 10;
+    filter: blur(5px);
+}
+  
+.bubble span {
+    position: absolute;
+    border-radius: 50%;
+}
+
+/* Bubble Colors */
+
+.bubble span:nth-child(1) {
+    inset: 10px;
+    border-left: 15px solid var(--lightteal);
+    filter: blur(8px);
+}
+
+.bubble span:nth-child(2) {
+    inset: 10px;
+    border-right: 15px solid var(--purple);
+    filter: blur(8px);
+}
+
+.bubble span:nth-child(3) {
+    inset: 10px;
+    border-bottom: 10px solid #fff;
+    filter: blur(8px);
+    transform: rotate(330deg);
+}
+
+/* Mini Bubbles */
+
+.small {
+    position: absolute;
+}
+
+/* Adjusting the Position of Each Small Bubble */
+
+.small:nth-child(1),
+.small:nth-child(4),
+.small:nth-child(7),
+.small:nth-child(10) {
+    bottom: -10%;
+    left: 15%;
+    zoom: .45;
+    animation: small-bubbly 9s ease-in-out infinite;
+}
+
+.small:nth-child(2),
+.small:nth-child(5),
+.small:nth-child(8),
+.small:nth-child(11) {
+    right: 25%;
+    bottom: -25%;
+    zoom: .35;
+    animation: small-bubbly 5s ease-in-out infinite;
+}
+
+.small:nth-child(3),
+.small:nth-child(6),
+.small:nth-child(9),
+.small:nth-child(12) {
+    right: 45%;
+    bottom: -45%;
+    zoom: .20;
+    animation: small-bubbly 7s ease-in-out infinite;
+}
+
+/* Large Bubble Movement */
+@keyframes bubbly {
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+    25% {
+        transform: translateY(-15px) rotate(-4deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0);
+    }
+    75% {
+        transform: translateY(-15px) rotate(4deg);
+    }
+}
+
+/* Small Bubble Movement */
+@keyframes small-bubbly {
+    0%, 100% {
+        transform: translateY(0) translateX(0) rotate(0);
+    }
+    25% {
+        transform: translateY(-15px) translateX(-15px) rotate(-4deg);
+    }
+    50% {
+        transform: translateY(0) translateX(0) rotate(0);
+    }
+    75% {
+        transform: translateY(-15px) translateX(15px) rotate(4deg);
+    }
 }
