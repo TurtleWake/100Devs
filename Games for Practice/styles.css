@@ -66,13 +66,7 @@ h2{
     align-items: center;
 }
 
-.gameCard{
-    background: black;
-    width: 130px;
-    height: 170px;
-    color: #04ADBF;
-    text-align: end;
-}
+
 
 .bubble-grid {
     display: flex;
@@ -187,44 +181,6 @@ h2{
     transform: rotate(330deg);
 }
 
-/* Mini Bubbles */
-
-.small {
-    position: absolute;
-}
-
-/* Adjusting the Position of Each Small Bubble */
-
-.small:nth-child(1),
-.small:nth-child(4),
-.small:nth-child(7),
-.small:nth-child(10) {
-    bottom: -10%;
-    left: 15%;
-    zoom: .45;
-    animation: small-bubbly 9s ease-in-out infinite;
-}
-
-.small:nth-child(2),
-.small:nth-child(5),
-.small:nth-child(8),
-.small:nth-child(11) {
-    right: 25%;
-    bottom: -25%;
-    zoom: .35;
-    animation: small-bubbly 5s ease-in-out infinite;
-}
-
-.small:nth-child(3),
-.small:nth-child(6),
-.small:nth-child(9),
-.small:nth-child(12) {
-    right: 45%;
-    bottom: -45%;
-    zoom: .20;
-    animation: small-bubbly 7s ease-in-out infinite;
-}
-
 /* Large Bubble Movement */
 @keyframes bubbly {
     0%, 100% {
@@ -238,21 +194,5 @@ h2{
     }
     75% {
         transform: translateY(-15px) rotate(4deg);
-    }
-}
-
-/* Small Bubble Movement */
-@keyframes small-bubbly {
-    0%, 100% {
-        transform: translateY(0) translateX(0) rotate(0);
-    }
-    25% {
-        transform: translateY(-15px) translateX(-15px) rotate(-4deg);
-    }
-    50% {
-        transform: translateY(0) translateX(0) rotate(0);
-    }
-    75% {
-        transform: translateY(-15px) translateX(15px) rotate(4deg);
     }
 }
