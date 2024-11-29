@@ -66,8 +66,9 @@ h2{
     align-items: center;
 }
 
+/* Bubble Layout */
 
-
+/**** I think I would like to do a carousel of some sort to move the bubbles along, there are too many to look good in a flex-wrap. It could be nice to get some sound effects and maybe even some water movements for when you click the next arrow?  */
 .bubble-grid {
     display: flex;
     justify-content: space-around;
@@ -75,17 +76,14 @@ h2{
 }
 
 .project-bubble {
-    width: 30%; /* Adjust the width as needed */
-    margin: 1%; /* Add some margin between bubbles */
     position: relative;
     filter: drop-shadow(8px 10px 5px rgba(29, 8, 46, 0.61));
 }
 
-
 .bubble {
     position: relative;
-    width: 20vw;
-    height: 20vw;
+    width: 20vh;
+    height: 20vh;
     max-width: 200px;
     max-height: 200px;
     border-radius: 50%;
@@ -95,7 +93,7 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 4vw;
+    margin: 4vh;
 }
 
 .pop {
