@@ -59,27 +59,35 @@ h2{
     color: var(--font);
 }
 
-/* Game Cards */
-#main ul{
+/* Bubble Layout */
+.container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
-/* Bubble Layout */
-
-/**** I think I would like to do a carousel of some sort to move the bubbles along, there are too many to look good in a flex-wrap. It could be nice to get some sound effects and maybe even some water movements for when you click the next arrow?  */
-.bubble-grid {
+.bubble-grid {   
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.project-bubble {
+    scroll-behavior: smooth;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
     position: relative;
-    filter: drop-shadow(8px 10px 5px rgba(29, 8, 46, 0.61));
+    margin: 20px auto;
 }
 
+.bubble-grid::-webkit-scrollbar {
+    display: none;
+}
+
+/* Arrows Styling */
+.bx-left-arrow-circle, .bx-right-arrow-circle {
+    cursor: pointer;
+    color: #91b7d934;
+    transition: all .3s ease-in-out;
+    font-size: 2rem;
+}
+
+/* Bubble Layout & Animation */
 .bubble {
     position: relative;
     width: 20vh;
@@ -96,26 +104,7 @@ h2{
     margin: 4vh;
 }
 
-.pop {
-    position: relative;
-    overflow: hidden;
-}
-
-.pop:hover {
-    transform: scale(1.2);
-}
-
-/* All Bubbles After First */
-#second {
-    animation: bubbly 3s ease-in-out infinite;
-}
-#third {
-    animation: bubbly 8s ease-in-out infinite;
-}
-#fourth {
-    animation: bubbly 5s ease-in-out infinite;
-}
-
+/* Shared Bubble Elements */
 .bubble img {
     position: absolute;
     width: 80%;
@@ -127,54 +116,51 @@ h2{
     filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, .5));
 }
 
-.bubble::before {
+.bubble::before, .bubble::after {
     content: '';
     position: absolute;
+    border-radius: 50%;
+    background-color: var(--font);
+    z-index: 10;
+    filter: blur(6px);
+}
+
+.bubble::before {
     top: 40px;
     left: 40px;
     width: 30px;
     height: 30px;
-    border-radius: 50%;
-    background-color: #ffffffc5;
-    z-index: 10;
-    filter: blur(5px);
 }
 
 .bubble::after {
-    content: '';
-    position: absolute;
     top: 75px;
     left: 75px;
     width: 20px;
     height: 20px;
-    border-radius: 50%;
-    background-color: #ffffffc5;
-    z-index: 10;
-    filter: blur(5px);
 }
-  
+
+/* Bubble Span Styling */
 .bubble span {
     position: absolute;
     border-radius: 50%;
 }
 
 /* Bubble Colors */
-
 .bubble span:nth-child(1) {
-    inset: 10px;
-    border-left: 15px solid var(--lightteal);
-    filter: blur(8px);
+    inset: 15px;
+    border-left: 15px solid var(--highlight);
+    filter: blur(15px);
 }
 
 .bubble span:nth-child(2) {
-    inset: 10px;
-    border-right: 15px solid var(--purple);
-    filter: blur(8px);
+    inset: 8px;
+    border-right: 15px solid var(--secondAccent);
+    filter: blur(5px);
 }
 
 .bubble span:nth-child(3) {
     inset: 10px;
-    border-bottom: 10px solid #fff;
+    border-bottom: 10px solid var(--firstAccent);
     filter: blur(8px);
     transform: rotate(330deg);
 }
