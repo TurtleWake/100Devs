@@ -66,13 +66,32 @@ h2{
     align-items: center;
 }
 
-.bubble-grid {   
+.carousel-view{
     display: flex;
-    scroll-behavior: smooth;
-    overflow: auto;
-    scroll-snap-type: x mandatory;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.bubble-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
     position: relative;
-    margin: 20px auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+}
+
+.project-bubble {
+    scroll-snap-align: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.5;
+}
+
+.project-bubble.active {
+    transform: scale(1.2);
+    opacity: 1;
 }
 
 .bubble-grid::-webkit-scrollbar {
@@ -87,13 +106,17 @@ h2{
     font-size: 2rem;
 }
 
+.bx-left-arrow-circle:hover, .bx-right-arrow-circle:hover {
+    cursor: pointer;
+    color: var(--highlight);
+    font-size: 2rem;
+}
+
 /* Bubble Layout & Animation */
 .bubble {
     position: relative;
-    width: 20vh;
-    height: 20vh;
-    max-width: 200px;
-    max-height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     overflow: hidden;
     box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.25);
@@ -102,7 +125,10 @@ h2{
     justify-content: center;
     align-items: center;
     margin: 4vh;
+    transition: all 0.3s ease-in-out;
 }
+
+
 
 /* Shared Bubble Elements */
 .bubble img {
