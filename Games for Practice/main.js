@@ -49,6 +49,7 @@ const rightArrow = document.querySelector('.next-arrow');
 const audio = document.querySelector(".myAudio");
 
 leftArrow.addEventListener('click', ()=>{
+    
     audio.play();
 })
 rightArrow.addEventListener('click', ()=>{
