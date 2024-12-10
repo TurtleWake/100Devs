@@ -71,9 +71,8 @@ nav img{
     width: 100%;
 }
 
-.projects h2 {
+h2 {
     font-family: honk;
-    color: var(--highlight);
     font-size: 2rem;
     margin-bottom: 20px;
 }
