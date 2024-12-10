@@ -27,7 +27,7 @@ function renderGames(gridId, games) {
     games.forEach(game => {
         bubbleGrid.innerHTML += `
             <article class="project-bubble">
-                <a href="${game.link}">
+                <a href="${game.link}" id='bubble-link'>
                     <div class="bubble">
                         <span></span>
                         <span></span>
@@ -43,15 +43,3 @@ function renderGames(gridId, games) {
 // Render Tutorial and Reimagined Games
 renderGames('tutorialGames', gamesData.tutorialGames);
 renderGames('reimaginedGames', gamesData.reimaginedGames);
-
-const leftArrow = document.querySelector('.prev-arrow');
-const rightArrow = document.querySelector('.next-arrow');
-const audio = document.querySelector(".myAudio");
-
-leftArrow.addEventListener('click', ()=>{
-    
-    audio.play();
-})
-rightArrow.addEventListener('click', ()=>{
-    audio.play();
-})
