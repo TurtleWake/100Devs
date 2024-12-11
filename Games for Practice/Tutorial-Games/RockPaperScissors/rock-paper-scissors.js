@@ -8,14 +8,12 @@ let computerChoice
 possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
     userChoice = e.target.id;
     userChoiceDisplay.innerHTML = userChoice;
-    console.log('User Choice =', userChoice);
     generateComputerChoice();
     getResult();
 }))
 
 function generateComputerChoice(){
     const randomNumber = Math.floor(Math.random() * possibleChoices.length);
-    console.log(randomNumber);
 
     if(randomNumber === 1){
         computerChoice = 'rock';
