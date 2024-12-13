@@ -1,6 +1,6 @@
 /* Box Model Hack */
 * {
-     -moz-box-sizing: border-box;
+     box-sizing: border-box;
 }
 
 /* Clear fix hack */
@@ -21,20 +21,31 @@
 /* BASE STYLES
 /*******************************************/
 
-body {
 
-}
 
 
 /******************************************
 /* LAYOUT
 /*******************************************/
-header {
-
+header, footer, section{
+  border: 3px solid teal;   
 }
 
-footer {
+header, footer {
+     float: left;
+     width: 100%;
+     height: 200px;
+}
 
+section{
+     float: left;
+     height: 300px;
+     width: 33.3%;
+}
+
+.two{
+     height: 500px;
+     width: 50%;
 }
 
 /******************************************
