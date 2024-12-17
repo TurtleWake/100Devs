@@ -25,10 +25,3 @@ ageCheck.addEventListener('click', ()=>{
         result.innerHTML = "There's nothing left to look forward to. :("
     }
 })
-
-
-
-//--- Harder
-//On click of the h1
-//Take the value from the input
-//Place the result of the conditional in the paragraph
